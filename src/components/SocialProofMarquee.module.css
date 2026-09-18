@@ -1,0 +1,67 @@
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+  display: flex;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* Gradient fades on the edges for a polished look */
+.marqueeContainer::before,
+.marqueeContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marqueeContainer::before {
+  left: 0;
+  background: linear-gradient(to right, var(--background), transparent);
+}
+
+.marqueeContainer::after {
+  right: 0;
+  background: linear-gradient(to left, var(--background), transparent);
+}
+
+.marqueeContent {
+  display: flex;
+  animation: scroll 30s linear infinite;
+  gap: 3rem;
+  padding-left: 3rem; /* match gap */
+}
+
+.marqueeItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-hanken), sans-serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--text-muted);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-emerald);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent-emerald);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,192 @@
+/* ─── HERO ─── */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 6rem;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  padding-bottom: 4rem;
+}
+
+.heroTitle {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.heroSubtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-muted);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.heroCtas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* ─── SIMULATOR ─── */
+.simulatorSection {
+  padding: 4rem 0 6rem;
+}
+
+/* ─── SHARED SECTION LAYOUT ─── */
+.sectionHead {
+  text-align: center;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionTitle {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  max-width: 800px;
+  margin: 0 auto 1rem;
+}
+
+.sectionSubtitle {
+  color: var(--text-muted);
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ─── WHY GRID ─── */
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.whyCard {
+  padding: 3rem 2.5rem;
+}
+
+.whyIcon {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--accent-amber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.whyTitle {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.whyBody {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ─── SECTORS GRID ─── */
+.sectorsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.sectorCard {
+  display: block;
+  padding: 2.5rem 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+}
+
+.sectorIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(247, 246, 236, 0.05);
+  border: 1px solid var(--border);
+  color: var(--accent-emerald);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.sectorName {
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.sectorDesc {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  margin-bottom: 1.5rem;
+  min-height: 48px;
+}
+
+.sectorLink {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary-lilac);
+  font-family: var(--font-hanken), sans-serif;
+  transition: gap 0.2s ease;
+}
+.sectorCard:hover .sectorLink { gap: 0.65rem; }
+
+/* ─── FINAL CTA ─── */
+.ctaBanner {
+  background: var(--bg-beige);
+  padding: 8rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  border-top-left-radius: var(--radius-xl);
+  border-top-right-radius: var(--radius-xl);
+  margin-top: -32px;
+}
+
+.ctaTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+}
+
+.ctaBody {
+  color: var(--text-dark-muted);
+  font-size: 1.125rem;
+  max-width: 520px;
+  margin: 0 auto 2.5rem;
+}
+
+.ctaBtns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .heroCtas, .ctaBtns { flex-direction: column; align-items: center; }
+}

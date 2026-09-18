@@ -1,0 +1,163 @@
+.hero {
+  padding: 8rem 0 6rem;
+  background: var(--bg-beige);
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-dark-muted);
+  font-family: var(--font-hanken), sans-serif;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.backLink:hover {
+  color: var(--text-dark);
+  transform: translateX(-4px);
+}
+
+.title {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-dark-muted);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.heroCopy {
+  max-width: 700px;
+  font-size: 1.125rem;
+  color: var(--text-dark-muted);
+  line-height: 1.6;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.card {
+  padding: 3rem 2.5rem;
+}
+
+.card h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+}
+
+.painPoints {
+  color: var(--text-light-muted);
+  font-size: 0.9375rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.painPoints strong {
+  color: var(--accent-amber);
+}
+
+.featureList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.featureList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  color: var(--text-light);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.checkIcon {
+  color: var(--text-dark);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--accent-emerald);
+  border-radius: 50%;
+}
+
+.flowList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.flowStep {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  position: relative;
+}
+
+.flowStep::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 30px;
+  bottom: -1.5rem;
+  width: 2px;
+  background: var(--border);
+}
+
+.flowStep:last-child::before {
+  display: none;
+}
+
+.stepNumber {
+  width: 30px;
+  height: 30px;
+  background: var(--primary-lilac);
+  color: var(--text-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.flowStep p {
+  color: var(--text-light-muted);
+  font-size: 0.9375rem;
+  padding-top: 4px;
+}
+
+.ctaSection {
+  text-align: center;
+  padding: 8rem 0;
+  background: var(--bg-beige);
+  border-top-left-radius: var(--radius-xl);
+  border-top-right-radius: var(--radius-xl);
+  margin-top: -32px;
+  position: relative;
+  z-index: 10;
+}
+
+.ctaSection h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+@media (max-width: 768px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,170 @@
+.container {
+  margin: 4rem auto;
+  max-width: 1000px;
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.tabHeader {
+  display: flex;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.tabBtn {
+  flex: 1;
+  padding: 1.25rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.tabBtn:hover {
+  color: var(--foreground);
+}
+
+.tabBtn.active {
+  color: var(--primary);
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--primary);
+}
+
+.mockupWrapper {
+  padding: 3rem;
+  min-height: 500px;
+}
+
+.mockupContent {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.mockupText h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.mockupText p {
+  color: var(--text-muted);
+  font-size: 1.125rem;
+}
+
+/* Fake Window Wireframe */
+.mockupVisual {
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  /* Dark mode adaptation for the visual wrapper */
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.05);
+}
+
+.fakeWindow {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+}
+
+.fakeHeader {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.fakeHeaderTitle {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.fakeBody {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 250px;
+}
+
+.wireframeLine {
+  height: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+}
+
+.processingBlock {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: rgba(37, 211, 102, 0.1);
+  border: 1px solid rgba(37, 211, 102, 0.3);
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-family: monospace;
+  margin: 1rem 0;
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary);
+}
+
+.wireframeBlock {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.innerBar {
+  height: 12px;
+  width: 70%;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 768px) {
+  .mockupContent {
+    grid-template-columns: 1fr;
+  }
+  .tabHeader {
+    flex-wrap: wrap;
+  }
+  .tabBtn {
+    flex-basis: 50%;
+  }
+}
