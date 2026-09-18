@@ -42,6 +42,8 @@ v0.5.0 (Documentation & Agent Handover)
 - **Design Token Polish**:
   - Resolved lingering `--font-bricolage` references in `StatsSection.tsx` and `SocialProofMarquee.module.css` to properly utilize the `--font-playfair` and `--font-hanken` typography tokens.
   - Defined explicit `--primary` fallbacks in `globals.css` (`var(--bg-forest)` for light/beige ground, `var(--accent-emerald)` for charcoal, and `var(--primary-lilac)` for forest green) to ensure full backward compatibility across existing components.
+- **Repository Hygiene**:
+  - Hardened `.gitignore` with Next.js Turbopack cache (`.turbo`), Windows artifacts (`Thumbs.db`, `desktop.ini`), distribution directories (`dist/`), editor configurations, and explicit `.env.example` exception.
 #### Validated
 - Ran production build via Turbopack (`npm run build`). Confirmed all TypeScript types, React 19 server/client boundaries, and Next.js 16 dynamic routing generate cleanly with zero errors across all static (`/`, `/pricing`, `/solutions`) and dynamic (`/solutions/[sector]`) routes.
 
