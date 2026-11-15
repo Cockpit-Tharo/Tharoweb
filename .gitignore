@@ -59,3 +59,8 @@ next-env.d.ts
 # agents & skills
 .agents/
 skills-lock.json
+
+# internal manuals, roadmaps & master plans
+THARO_MANUAL.*
+THARO_MASTER_PLAN.*
+THARO_ROADMAP.*
