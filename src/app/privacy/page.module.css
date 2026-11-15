@@ -1,0 +1,221 @@
+.legalPage {
+  background-color: var(--bg-cream, #F7F6EC);
+  min-height: 100vh;
+  padding: 6.5rem 1.5rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ambientLilac {
+  position: absolute;
+  top: 5%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.1) 0%, rgba(167, 139, 250, 0) 70%);
+  pointer-events: none;
+}
+
+.ambientEmerald {
+  position: absolute;
+  bottom: 10%;
+  left: -8%;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(13, 59, 46, 0.08) 0%, rgba(13, 59, 46, 0) 70%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  margin-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(22, 22, 22, 0.1);
+  padding-bottom: 2.5rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 1px solid rgba(22, 22, 22, 0.12);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #0D3B2E;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #008069;
+}
+
+.title {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 700;
+  color: var(--text-dark, #161616);
+  line-height: 1.15;
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  color: #666666;
+  flex-wrap: wrap;
+}
+
+.contentBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+}
+
+.sectionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-dark, #161616);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.sectionNum {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #008069;
+  background: rgba(0, 128, 105, 0.08);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+}
+
+.paragraph {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #383838;
+  margin: 0;
+}
+
+.bulletList {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.bulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #383838;
+}
+
+.bulletIcon {
+  color: #008069;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.highlightBox {
+  background: #FFFFFF;
+  border: 1px solid rgba(13, 59, 46, 0.16);
+  border-left: 4px solid #0D3B2E;
+  border-radius: 12px;
+  padding: 1.25rem 1.4rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+}
+
+.highlightText {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #161616;
+  margin: 0;
+}
+
+.contactBox {
+  margin-top: 2rem;
+  background: #0D3B2E;
+  border-radius: 16px;
+  padding: 2rem;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.contactInfo h3 {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  color: #FFFFFF;
+}
+
+.contactInfo p {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.88rem;
+  color: #9FE2C5;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .legalPage {
+    padding: 5rem 1rem 4rem;
+  }
+
+  .header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .contactBox {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+  }
+
+  .contactBox a {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,986 @@
+/* ══════════════════════════════════════════════════════════════════
+   AUTHENTIC IPHONE RESTART PRELOADER
+   Centered on screen at original hero phone proportions.
+   Black OLED screen: green 3D Tharo logo and Tharo Technologies LLP
+   cinematically bloom in, then Apple-style minimalist progress bar fills.
+   At 100%, phone starts, unlocks into WhatsApp, and docks into hero frame.
+   Zero random words or technical text clutter.
+   ══════════════════════════════════════════════════════════════════ */
+
+.canvasOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow: hidden;
+  user-select: none;
+  cursor: default;
+  pointer-events: none;
+}
+
+.canvasBackdrop {
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-cream, #F7F6EC);
+  background-image:
+    linear-gradient(to right, rgba(22, 22, 22, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(22, 22, 22, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  transition: opacity 0.38s ease-out;
+  pointer-events: auto;
+  z-index: 0;
+}
+
+.backdropFading {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Ambient lighting matching hero */
+.ambientLilac {
+  position: absolute;
+  top: 5%;
+  right: -5%;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.12) 0%, rgba(167, 139, 250, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambientEmerald {
+  position: absolute;
+  bottom: 10%;
+  left: -8%;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(13, 59, 46, 0.09) 0%, rgba(13, 59, 46, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── AWWWARDS ARCHITECTURAL CANVASES & REGISTRATION MARKS ─── */
+.watermarkContainer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.watermarkText {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(5.5rem, 18vw, 16rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: rgba(13, 59, 46, 0.032);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Concentric orbital alignment rings */
+.orbitRingOuter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(640px, 92vw);
+  height: min(640px, 92vw);
+  border-radius: 50%;
+  border: 1px dashed rgba(22, 22, 22, 0.065);
+  pointer-events: none;
+  z-index: 0;
+  animation: slowOrbit 140s linear infinite;
+}
+
+.orbitRingInner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(460px, 76vw);
+  height: min(460px, 76vw);
+  border-radius: 50%;
+  border: 1px solid rgba(22, 22, 22, 0.04);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle horizontal alignment hairline */
+.axisLineHorizontal {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(22, 22, 22, 0.05) 15%,
+    rgba(22, 22, 22, 0.05) 85%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes slowOrbit {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Perimeter Corner Registration Marks */
+.cornerMarkTopLeft {
+  position: absolute;
+  top: clamp(1.2rem, 3.2vw, 2.5rem);
+  left: clamp(1.2rem, 3.2vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cornerMarkTopRight {
+  position: absolute;
+  top: clamp(1.2rem, 3.2vw, 2.5rem);
+  right: clamp(1.2rem, 3.2vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cornerMarkBottomLeft {
+  position: absolute;
+  bottom: clamp(1.2rem, 3.2vw, 2.5rem);
+  left: clamp(1.2rem, 3.2vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cornerMarkBottomRight {
+  position: absolute;
+  bottom: clamp(1.2rem, 3.2vw, 2.5rem);
+  right: clamp(1.2rem, 3.2vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Razor-thin Swiss print registration crosshair */
+.crosshair {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.45;
+}
+
+.crosshair::before,
+.crosshair::after {
+  content: "";
+  position: absolute;
+  background: #161616;
+}
+
+.crosshair::before {
+  width: 11px;
+  height: 1px;
+}
+
+.crosshair::after {
+  width: 1px;
+  height: 11px;
+}
+
+.cornerLabel {
+  font-family: var(--font-hanken), -apple-system, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(22, 22, 22, 0.45);
+}
+
+.counterWrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.15rem;
+  font-family: var(--font-mono, monospace);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: rgba(22, 22, 22, 0.65);
+  letter-spacing: 0.05em;
+}
+
+.counterVal {
+  color: #161616;
+}
+
+.counterUnit {
+  font-size: 0.65rem;
+  color: rgba(22, 22, 22, 0.4);
+}
+
+/* ─── PHYSICAL MORPHING HERO CONSOLE ANCHOR (ORIGINAL PHONE DIMENSIONS) ─── */
+.morphingCard {
+  position: fixed;
+  z-index: 100000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(365px, calc(100vw - 2rem));
+  height: clamp(720px, 80vh, 765px);
+  border-radius: 50px;
+  background: #18181b;
+  padding: 9px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.14),
+    0 4px 10px rgba(0, 0, 0, 0.25),
+    0 24px 60px -12px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(16, 185, 129, 0.18);
+  transition:
+    left 0.8s cubic-bezier(0.76, 0, 0.24, 1),
+    top 0.8s cubic-bezier(0.76, 0, 0.24, 1),
+    width 0.8s cubic-bezier(0.76, 0, 0.24, 1),
+    height 0.8s cubic-bezier(0.76, 0, 0.24, 1),
+    border-radius 0.8s cubic-bezier(0.76, 0, 0.24, 1),
+    box-shadow 0.8s cubic-bezier(0.76, 0, 0.24, 1),
+    padding 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.cardMorphing {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 16px 36px -8px rgba(0, 0, 0, 0.35),
+    0 32px 64px -16px rgba(0, 0, 0, 0.25);
+}
+
+/* ─── PHYSICAL PHONE SCREEN CONTAINER ─── */
+.consoleScreen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 42px;
+  overflow: hidden;
+  background: #000000;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* ─── LAYER 2: IPHONE RESTART SCREEN (Black Screen + Green Logo + Tharo Technologies LLP + Minimalist Bar) ─── */
+.bootScreenLayer {
+  position: absolute;
+  inset: 0;
+  background: #000000;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.4rem 1.8rem;
+  box-sizing: border-box;
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0px);
+  transition:
+    opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.45s ease-out;
+}
+
+.bootScreenDismissed {
+  opacity: 0;
+  transform: scale(1.05);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+/* Minimalist Hardware Notch Silhouette */
+.bootDynamicIsland {
+  width: 104px;
+  height: 26px;
+  border-radius: 18px;
+  background: #080808;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 14px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.bootIslandLens {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #030404;
+  border: 1.5px solid #14171a;
+}
+
+/* Centered iPhone Restart Cluster (Dead Center Optical Alignment) */
+.bootCenterCluster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Cinematic Logo & Brand Entrance */
+.bootLogoWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  opacity: 0;
+  transform: scale(0.86);
+  filter: blur(8px);
+  transition:
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bootLogoEntered {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0px);
+}
+
+.bootEmblemHalo {
+  position: absolute;
+  top: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.28) 0%, rgba(16, 185, 129, 0) 70%);
+  animation: bootBreathing 2.4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes bootBreathing {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+.bootLogoImg {
+  position: relative;
+  z-index: 1;
+  width: 72px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.6));
+}
+
+.bootBrandText {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Minimalist Apple-Style Progress Bar */
+.bootBarContainer {
+  margin-top: 36px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.35s ease-out,
+    transform 0.35s ease-out;
+}
+
+.bootBarVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bootBarTrack {
+  width: 145px;
+  height: 3.5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  overflow: hidden;
+  position: relative;
+}
+
+.bootBarFill {
+  height: 100%;
+  border-radius: 999px;
+  background: #FFFFFF;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+  transition: width 0.05s linear;
+}
+
+/* Optical balance matching top notch height */
+.bootBaseSpacer {
+  height: 26px;
+  width: 104px;
+}
+
+/* ─── LAYER 1: AUTHENTIC WHATSAPP PHONE INTERFACE (Revealed at 100%) ─── */
+.whatsappLayer {
+  position: absolute;
+  inset: 0;
+  background: #efeae2;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: scale(0.97);
+  transition:
+    opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.whatsappLayerVisible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Status Bar */
+.statusBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1.25rem 0.4rem;
+  background: #f0f2f5;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+.statusTime {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #111b21;
+}
+
+.dynamicIsland {
+  width: 95px;
+  height: 22px;
+  background: #000;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+}
+
+.islandCamera {
+  width: 9px;
+  height: 9px;
+  background: #111;
+  border-radius: 50%;
+  border: 1.5px solid #222;
+}
+
+.statusIcons {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #111b21;
+}
+
+.networkType {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.batteryPill {
+  width: 19px;
+  height: 9.5px;
+  border: 1px solid #111b21;
+  border-radius: 2.5px;
+  padding: 1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.batteryPill::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 2px;
+  width: 2px;
+  height: 4px;
+  background: #111b21;
+  border-radius: 0 1px 1px 0;
+}
+
+.batteryFill {
+  width: 82%;
+  height: 100%;
+  background: #111b21;
+  border-radius: 1px;
+}
+
+/* WhatsApp Chat Header */
+.chatHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.52rem 0.85rem;
+  background: #0D3B2E;
+  color: #ffffff;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.chatNameRow {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.chatName {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 155px;
+}
+
+.verifiedBadge {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.chatStatus {
+  font-size: 0.65rem;
+  color: #9FE2C5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #FFFFFF;
+}
+
+.replayHeaderBtn {
+  background: rgba(255, 255, 255, 0.18);
+  border: none;
+  border-radius: 50%;
+  color: #FFFFFF;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+}
+
+/* Authentic Messages Canvas */
+.messagesCanvas {
+  flex: 1;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  overflow: hidden;
+  background-color: #efeae2;
+  background-image: radial-gradient(#d1d7db 0.75px, transparent 0.75px);
+  background-size: 14px 14px;
+}
+
+.encryptionNotice {
+  background: #ffeecd;
+  color: #54656f;
+  border-radius: 8px;
+  font-size: 0.66rem;
+  line-height: 1.35;
+  padding: 0.4rem 0.65rem;
+  text-align: center;
+  max-width: 92%;
+  margin: 0 auto 0.4rem;
+  box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.encryptionNotice span {
+  font-size: 0.64rem;
+  color: #54656f;
+  line-height: 1.3;
+}
+
+.lockIcon {
+  flex-shrink: 0;
+  color: #54656f;
+}
+
+.dateDivider {
+  display: flex;
+  justify-content: center;
+  margin: 0.2rem auto 0.6rem;
+}
+
+.dateDivider span {
+  background: #ffffff;
+  color: #54656f;
+  border-radius: 7.5px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+  letter-spacing: 0.02em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* WhatsApp Bottom Input Bar */
+.inputBar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.65rem;
+  background: #f0f2f5;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
+
+.attachBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  color: #54656f;
+  flex-shrink: 0;
+}
+
+.inputPill {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 0.35rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.fakeInput {
+  color: #8696a0;
+  font-size: 0.8rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  user-select: none;
+}
+
+.pillIcons {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.pillIconBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  color: #8696a0;
+}
+
+.micBtn {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #00a884;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* Home Bar Indicator */
+.homeBarWrapper {
+  padding: 0.35rem 0 0.45rem;
+  background: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.homeIndicator {
+  width: 95px;
+  height: 4px;
+  background: #111b21;
+  border-radius: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .morphingCard {
+    width: min(340px, calc(100vw - 2rem));
+    height: clamp(660px, 78vh, 700px);
+  }
+}
+
+@media (max-width: 768px) {
+  /* On phones: Clean window situation, zero fake outer phone chassis */
+  .morphingCard {
+    width: min(385px, calc(100vw - 1.7rem));
+    height: 500px;
+    border-radius: 18px;
+    padding: 0;
+    background: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.25),
+      0 12px 32px rgba(13, 59, 46, 0.16);
+  }
+
+  .cardMorphing {
+    border: 1px solid rgba(22, 22, 22, 0.12);
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.06),
+      0 12px 32px rgba(13, 59, 46, 0.08);
+  }
+
+  .consoleScreen {
+    border-radius: 18px;
+    height: 100%;
+    box-shadow: none;
+  }
+
+  /* Hide smartphone status bar, dynamic island, and home indicator on mobile */
+  .bootDynamicIsland,
+  .bootBaseSpacer,
+  .statusBar,
+  .homeBarWrapper {
+    display: none;
+  }
+
+  .bootScreenLayer {
+    border-radius: 18px;
+    padding: 2.2rem 1.4rem;
+    justify-content: center;
+  }
+
+  .bootCenterCluster {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bootLogoImg {
+    width: 62px;
+    height: 62px;
+  }
+
+  .bootBrandText {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+  }
+
+  .bootBarContainer {
+    margin-top: 26px;
+  }
+
+  .bootBarTrack {
+    width: 130px;
+  }
+
+  /* WhatsApp Window Popup Header matching hero bit-for-bit */
+  .chatHeader {
+    border-radius: 18px 18px 0 0;
+    padding: 0.65rem 0.85rem;
+    background: #0D3B2E;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .chatHeader .chatName {
+    color: #FFFFFF;
+    font-size: 0.82rem;
+    max-width: 185px;
+  }
+
+  .chatHeader .chatStatus {
+    color: #9FE2C5;
+  }
+
+  .chatHeader .headerActions {
+    color: #FFFFFF;
+    gap: 0.35rem;
+  }
+
+  .chatHeader .headerVideoBtn,
+  .chatHeader .headerCallBtn {
+    display: none;
+  }
+
+  .chatHeader .backBtn,
+  .chatHeader .iconBtn {
+    color: #FFFFFF;
+  }
+
+  .chatHeader .replayHeaderBtn {
+    background: rgba(255, 255, 255, 0.18);
+    color: #FFFFFF;
+  }
+
+  .inputBar {
+    border-radius: 0 0 18px 18px;
+    padding: 0.45rem 0.65rem;
+  }
+
+  /* Perimeter Corner Marks mobile scale */
+  .cornerMarkTopLeft {
+    top: 1.25rem;
+    left: 1.25rem;
+    gap: 0.5rem;
+  }
+
+  .cornerMarkTopRight {
+    top: 1.25rem;
+    right: 1.25rem;
+    gap: 0.5rem;
+  }
+
+  .cornerMarkBottomLeft,
+  .cornerMarkBottomRight {
+    display: none;
+  }
+
+  .cornerLabel {
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+  }
+
+  .counterWrap {
+    font-size: 0.75rem;
+  }
+
+  .crosshair {
+    width: 9px;
+    height: 9px;
+  }
+
+  .crosshair::before {
+    width: 9px;
+  }
+
+  .crosshair::after {
+    height: 9px;
+  }
+}
+
+@media (max-height: 680px) {
+  .cornerMarkBottomLeft,
+  .cornerMarkBottomRight {
+    display: none;
+  }
+}

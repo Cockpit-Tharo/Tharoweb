@@ -1,0 +1,373 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 2.5rem 0 3.5rem;
+}
+
+/* Edge gradient feather masks */
+.wrapper::before,
+.wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.wrapper::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg-beige, #F7F6EC) 0%, rgba(247, 246, 236, 0) 100%);
+}
+
+.wrapper::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--bg-beige, #F7F6EC) 0%, rgba(247, 246, 236, 0) 100%);
+}
+
+/* Horizontal Track Container */
+.trackContainer {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  touch-action: pan-y;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  padding: 1rem 0 2rem;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.trackContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.trackContainer:active {
+  cursor: grabbing;
+}
+
+.track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Capsule Card (The "Lollipop") */
+.capsule {
+  position: relative;
+  width: 285px;
+  min-width: 285px;
+  height: 416px;
+  min-height: 416px;
+  border-radius: 36px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(247, 246, 236, 0.72) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.04),
+    0 12px 32px -6px rgba(22, 22, 22, 0.05),
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 1.15rem 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: grab;
+  transition: 
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+/* Specular top rim shine */
+.capsule::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 20px;
+  right: 20px;
+  height: 40%;
+  border-radius: 36px 36px 0 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Active Highlight State */
+.capsuleActive {
+  transform: translateY(-8px) scale(1.04);
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow:
+    0 16px 40px -8px rgba(13, 59, 46, 0.12),
+    0 8px 20px -4px rgba(0, 0, 0, 0.06),
+    inset 0 2px 2px rgba(255, 255, 255, 1);
+  z-index: 20;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .capsule:hover {
+    transform: translateY(-8px) scale(1.04);
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(255, 255, 255, 1);
+    box-shadow:
+      0 16px 40px -8px rgba(13, 59, 46, 0.12),
+      0 8px 20px -4px rgba(0, 0, 0, 0.06),
+      inset 0 2px 2px rgba(255, 255, 255, 1);
+    z-index: 20;
+  }
+}
+
+.capsule:active {
+  transform: scale(0.98) !important;
+  transition: transform 80ms var(--ease-out) !important;
+}
+
+.capsule:focus,
+.capsule:focus-visible {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Dimming Non-Active Neighbors */
+.capsuleDimmed {
+  opacity: 0.38;
+  transform: scale(0.96);
+  filter: blur(0.5px);
+}
+
+/* Capsule Header */
+.cardHead {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sectorBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full, 9999px);
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-dark, #161616);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(22, 22, 22, 0.06);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(22, 22, 22, 0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+/* Mini Conversational Wireframe */
+.wireframeBox {
+  position: relative;
+  z-index: 2;
+  background: rgba(239, 234, 226, 0.6);
+  border-radius: 18px;
+  padding: 0.75rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  border: 1px solid rgba(22, 22, 22, 0.05);
+}
+
+.previewBubble {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.725rem;
+  line-height: 1.34;
+  padding: 0.38rem 0.58rem;
+  border-radius: 11px;
+  max-width: 92%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.previewBubbleClient {
+  align-self: flex-start;
+  background: #FFFFFF;
+  color: #161616;
+  border-bottom-left-radius: 2px;
+}
+
+.previewBubbleSystem {
+  align-self: flex-end;
+  background: #D9FDD3;
+  color: #111B21;
+  border-bottom-right-radius: 2px;
+}
+
+/* Card Body & Title */
+.cardBody {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0.15rem 0;
+}
+
+.cardTitle {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-dark, #161616);
+  margin: 0;
+}
+
+.cardSubtitle {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.78rem;
+  color: var(--text-dark-muted, #555);
+  line-height: 1.32;
+  margin: 0;
+}
+
+/* Impact Metric & Tags Footer */
+.cardFooter {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(22, 22, 22, 0.06);
+  padding-top: 0.65rem;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.metricRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.metricBadge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.22rem 0.62rem;
+  border-radius: var(--radius-full, 9999px);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.metricLabelText {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.7rem;
+  color: var(--text-dark-muted, #777);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 135px;
+}
+
+@media (max-width: 768px) {
+  .capsule {
+    width: 265px;
+    min-width: 265px;
+    height: 395px;
+    min-height: 395px;
+    padding: 1rem;
+    border-radius: 28px;
+  }
+
+  .wireframeBox {
+    padding: 0.65rem 0.7rem;
+    gap: 0.4rem;
+  }
+
+  .previewBubble {
+    font-size: 0.7rem;
+    padding: 0.32rem 0.5rem;
+  }
+
+  .cardTitle {
+    font-size: 0.96rem;
+  }
+
+  .cardSubtitle {
+    font-size: 0.75rem;
+  }
+
+  .metricLabelText {
+    font-size: 0.66rem;
+    max-width: 120px;
+  }
+
+  .metricBadge {
+    font-size: 0.74rem;
+    padding: 0.2rem 0.55rem;
+  }
+  
+  .wrapper::before,
+  .wrapper::after {
+    width: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    padding: 0.75rem 0 1.75rem;
+  }
+
+  .capsule {
+    width: 250px;
+    min-width: 250px;
+    height: 345px;
+    min-height: 345px;
+    border-radius: 24px;
+    padding: 0.95rem 0.85rem;
+  }
+
+  .cardSubtitle {
+    display: none;
+  }
+
+  .wrapper::before,
+  .wrapper::after {
+    width: 20px;
+  }
+}
+

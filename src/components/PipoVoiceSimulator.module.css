@@ -1,0 +1,603 @@
+.simulatorWrapper {
+  background: var(--bg-charcoal, #161616);
+  border: 1px solid rgba(247, 246, 236, 0.12);
+  border-radius: var(--radius-xl, 32px);
+  padding: 1.75rem;
+  color: var(--text-light, #F7F6EC);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Telemetry Header */
+.telemetryBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(247, 246, 236, 0.08);
+  margin-bottom: 1.25rem;
+}
+
+.telemetryLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.simulatorTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+
+.telemetryRight {
+  display: flex;
+  align-items: center;
+}
+
+.hotkeyChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: rgba(247, 246, 236, 0.75);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm, 8px);
+}
+
+/* Scenario Tabs */
+.scenarioTabsShell {
+  margin-bottom: 1.5rem;
+}
+
+.scenarioTabs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.75rem;
+  scrollbar-width: none;
+}
+
+.scenarioTab {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(247, 246, 236, 0.1);
+  color: rgba(247, 246, 236, 0.7);
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.scenarioTab:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+}
+
+.scenarioTabActive {
+  background: var(--bg-forest, #0D3B2E);
+  border-color: rgba(226, 216, 255, 0.35);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(13, 59, 46, 0.4);
+}
+
+/* Cockpit Grid */
+.cockpitGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 1.5rem;
+}
+
+/* Left Column: Audio Card */
+.audioColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.audioCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(247, 246, 236, 0.08);
+  border-radius: var(--radius-lg, 24px);
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.audioCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.speakerMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.speakerAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-forest, #0D3B2E);
+  color: var(--primary-lilac, #E2D8FF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(226, 216, 255, 0.25);
+}
+
+.speakerName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.speakerRole {
+  font-size: 0.78rem;
+  color: rgba(247, 246, 236, 0.6);
+}
+
+.durationBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: rgba(247, 246, 236, 0.7);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm, 8px);
+}
+
+/* Waveform Box */
+.waveformBox {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md, 16px);
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.waveformBars {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  height: 48px;
+}
+
+.waveBar {
+  flex: 1;
+  background: rgba(226, 216, 255, 0.4);
+  border-radius: 3px;
+  transition: height 0.2s ease, background 0.2s ease;
+}
+
+.waveBarPlaying {
+  background: var(--primary-lilac, #E2D8FF);
+  box-shadow: 0 0 8px rgba(226, 216, 255, 0.6);
+  animation: soundBounce 0.6s infinite ease-in-out alternate;
+}
+
+@keyframes soundBounce {
+  0% {
+    transform: scaleY(0.4);
+  }
+  100% {
+    transform: scaleY(1.1);
+  }
+}
+
+.playSimulationBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(226, 216, 255, 0.15);
+  color: var(--primary-lilac, #E2D8FF);
+  border: 1px solid rgba(226, 216, 255, 0.3);
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-sm, 8px);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.playSimulationBtn:hover:not(:disabled) {
+  background: var(--primary-lilac, #E2D8FF);
+  color: var(--bg-charcoal, #161616);
+}
+
+.playSimulationBtn:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+
+/* Transcript Box */
+.transcriptBox {
+  background: rgba(13, 59, 46, 0.25);
+  border-left: 3px solid var(--accent-emerald, #20B87C);
+  border-radius: 0 var(--radius-sm, 8px) var(--radius-sm, 8px) 0;
+  padding: 0.9rem 1rem;
+}
+
+.transcriptLabel {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-emerald, #20B87C);
+  margin-bottom: 0.35rem;
+}
+
+.transcriptText {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: #FFFFFF;
+  font-style: italic;
+}
+
+/* 5-Second Fail-Safe Safeguard HUD */
+.safeguardHud {
+  background: rgba(238, 155, 57, 0.08);
+  border: 1px solid rgba(238, 155, 57, 0.25);
+  border-radius: var(--radius-md, 16px);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.safeguardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.safeguardTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-amber, #EE9B39);
+}
+
+.undoBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--accent-amber, #EE9B39);
+  color: #161616;
+  border: none;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-sm, 8px);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  font-family: inherit;
+}
+
+.undoBtn:hover {
+  transform: scale(1.04);
+}
+
+.safeguardDesc {
+  font-size: 0.78rem;
+  color: rgba(247, 246, 236, 0.75);
+  line-height: 1.4;
+}
+
+.safeguardProgressTrack {
+  height: 4px;
+  background: rgba(238, 155, 57, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 0.3rem;
+}
+
+.safeguardProgressBar {
+  height: 100%;
+  background: var(--accent-amber, #EE9B39);
+  transition: width 1s linear;
+}
+
+/* Right Column: Actions & Entities */
+.actionColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.entitiesCard,
+.actionsCard,
+.whatsAppOutboxCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(247, 246, 236, 0.08);
+  border-radius: var(--radius-lg, 24px);
+  padding: 1.25rem;
+}
+
+.cardHeaderSmall {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
+}
+
+.intentBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  font-family: monospace;
+  color: var(--primary-lilac, #E2D8FF);
+  background: rgba(226, 216, 255, 0.1);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-sm, 8px);
+}
+
+.commitBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--accent-emerald, #20B87C);
+}
+
+.entityGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+}
+
+.entityItem {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-sm, 8px);
+  padding: 0.65rem 0.8rem;
+}
+
+.entityKey {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(247, 246, 236, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.2rem;
+}
+
+.entityVal {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  word-break: break-word;
+}
+
+/* Actions Card */
+.cardTitleLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
+}
+
+.cardTitle {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.latencyNotice {
+  font-size: 0.74rem;
+  color: var(--accent-emerald, #20B87C);
+  font-weight: 600;
+}
+
+.actionList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.actionRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-sm, 8px);
+  padding: 0.7rem 0.85rem;
+}
+
+.actionStatusIcon {
+  color: var(--accent-emerald, #20B87C);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.actionBody {
+  flex: 1;
+}
+
+.actionTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.15rem;
+}
+
+.actionStatus {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.actionSystem {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--primary-lilac, #E2D8FF);
+  background: rgba(226, 216, 255, 0.1);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+}
+
+.actionDesc {
+  font-size: 0.76rem;
+  color: rgba(247, 246, 236, 0.65);
+  line-height: 1.35;
+}
+
+/* WhatsApp Outbox Card */
+.whatsAppOutboxCard {
+  background: rgba(13, 59, 46, 0.35);
+  border-color: rgba(32, 184, 124, 0.2);
+}
+
+.outboxHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.outboxTag {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--accent-emerald, #20B87C);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.deliveryTime {
+  font-size: 0.7rem;
+  color: rgba(247, 246, 236, 0.55);
+}
+
+.whatsAppBubble {
+  background: #005D4B;
+  border-radius: 12px 12px 2px 12px;
+  padding: 0.85rem 1rem;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.whatsAppText {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  margin-bottom: 0.4rem;
+}
+
+.bubbleFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.doubleCheck {
+  color: #34B7F1;
+  font-weight: 700;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .cockpitGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .simulatorWrapper {
+    padding: 1rem;
+    border-radius: 22px;
+  }
+
+  .telemetryBar {
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .telemetryRight,
+  .hotkeyChip {
+    display: none;
+  }
+
+  .scenarioTabsShell {
+    margin-bottom: 1rem;
+  }
+
+  .scenarioTabs {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0 2.25rem 0.25rem 0;
+  }
+
+  .scenarioTabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scenarioTab {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.78rem;
+  }
+
+  .cockpitGrid,
+  .actionColumn {
+    gap: 0.85rem;
+  }
+
+  .audioCard,
+  .entitiesCard,
+  .actionsCard,
+  .whatsAppOutboxCard {
+    padding: 1rem;
+    border-radius: 18px;
+    gap: 0.9rem;
+  }
+
+  .entityGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .entityItem {
+    min-width: 0;
+    padding: 0.55rem 0.65rem;
+  }
+
+  .entityVal {
+    font-size: 0.78rem;
+  }
+
+  .waveformBars {
+    height: 36px;
+    gap: 2px;
+  }
+}
+

@@ -1,0 +1,1262 @@
+/* ─── THARO INTERACTIVE CINEMATIC HERO CONSOLE ─── */
+
+.heroSection {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 4.8rem 0 3.5rem;
+  background-color: var(--bg-cream, #F7F6EC);
+  background-image:
+    linear-gradient(to right, rgba(22, 22, 22, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(22, 22, 22, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.ambientLilac {
+  position: absolute;
+  top: 5%;
+  right: -5%;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.12) 0%, rgba(167, 139, 250, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambientEmerald {
+  position: absolute;
+  bottom: 10%;
+  left: -8%;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(13, 59, 46, 0.09) 0%, rgba(13, 59, 46, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgWord {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(6.5rem, 16vw, 15rem);
+  font-weight: 700;
+  color: rgba(22, 22, 22, 0.026);
+  letter-spacing: -0.04em;
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+.scrollVeil {
+  position: absolute;
+  inset: 0;
+  background: #161616;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* ─── HANGING HEADLINE ─── */
+.heroHeader {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1rem 3.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroTitle {
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: #111827;
+  letter-spacing: -0.025em;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleRowOne {
+  display: block;
+}
+
+.titleRowTwo {
+  display: block;
+  color: #161616;
+}
+
+.titleRowThree {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.25em;
+}
+
+.cycleContainer {
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  vertical-align: baseline;
+  text-align: center;
+}
+
+.cycleWord {
+  grid-area: 1 / 1;
+  font-style: italic;
+  color: #258757;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.cycleWordActive {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ─── 3D CINEMATIC STAGE: OVERLAPPING HEADLINE ─── */
+.heroStageWrapper {
+  position: relative;
+  z-index: 2;
+  margin-top: -2.35rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1160px;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+
+/* ─── MODULE 1: TACTILE REGULATOR DIAL MENU ─── */
+.regulatorModule {
+  width: 255px;
+  background: #F6F4EC;
+  border: 1px solid rgba(22, 22, 22, 0.1);
+  border-radius: 24px;
+  padding: 1.35rem 1.05rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.15rem;
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.monoTagRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 0.2rem;
+}
+
+.monoTag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #55544E;
+}
+
+/* All 5 Domains List */
+.domainList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+.domainBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(22, 22, 22, 0.1);
+  border-radius: 9px;
+  padding: 0.42rem 0.65rem;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  width: 100%;
+  text-align: left;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.domainBtn:hover {
+  border-color: rgba(13, 59, 46, 0.35);
+  background: #FAFAF7;
+}
+
+.domainBtnActive {
+  background: #0D3B2E;
+  color: #FFFFFF;
+  border-color: #0D3B2E;
+  box-shadow: 0 3px 10px rgba(13, 59, 46, 0.22);
+}
+
+.domainIndex {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #8A8880;
+  flex-shrink: 0;
+}
+
+.domainBtnActive .domainIndex {
+  color: #9FE2C5;
+}
+
+.domainLabel {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #161616;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.domainBtnActive .domainLabel {
+  color: #FFFFFF;
+}
+
+.domainDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #9FE2C5;
+  box-shadow: 0 0 6px rgba(159, 226, 197, 0.8);
+  flex-shrink: 0;
+}
+
+/* Rotary Dial Knob */
+.dialCluster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+}
+
+.dialOuter {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 999px;
+  background: conic-gradient(from 210deg, rgba(22, 22, 22, 0.14), rgba(22, 22, 22, 0.03));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  user-select: none;
+}
+
+.dialKnob {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  background: linear-gradient(145deg, #272E2B 0%, #111614 100%);
+  border: 2px solid #090C0B;
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.22);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialNotch {
+  position: absolute;
+  top: 6px;
+  width: 4px;
+  height: 13px;
+  border-radius: 99px;
+  background: #EE4C24;
+  box-shadow: 0 0 6px rgba(238, 76, 36, 0.65);
+}
+
+.dialHint {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.58rem;
+  font-weight: 600;
+  color: #8A8880;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Small Restart Button: Subtle, no heavy orange button */
+.smallRestartBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  background: #FFFFFF;
+  color: #161616;
+  border: 1px solid rgba(22, 22, 22, 0.14);
+  border-radius: 10px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.smallRestartBtn:hover {
+  background: #F4F3ED;
+  color: #0D3B2E;
+  border-color: rgba(13, 59, 46, 0.3);
+}
+
+.spinIcon {
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ─── MODULE 2: AUTHENTIC WHATSAPP PHONE MOCKUP (INCREASED LENGTH) ─── */
+.phoneMockupContainer {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.phoneFrame {
+  position: relative;
+  width: min(365px, calc(100vw - 2rem));
+  height: clamp(720px, 80vh, 765px);
+  background: #18181b;
+  border-radius: 50px;
+  padding: 9px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 16px 36px -8px rgba(0, 0, 0, 0.35),
+    0 32px 64px -16px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+.phoneScreen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 42px;
+  overflow: hidden;
+  background: #efeae2;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+/* Status Bar */
+.statusBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 1.35rem 0.45rem;
+  background: #f0f2f5;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  user-select: none;
+  z-index: 5;
+}
+
+.statusTime {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #111b21;
+  letter-spacing: -0.01em;
+  width: 48px;
+}
+
+.dynamicIsland {
+  width: 95px;
+  height: 25px;
+  background: #000000;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.islandCamera {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #111827;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.statusIcons {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #111b21;
+  width: 48px;
+  justify-content: flex-end;
+}
+
+.networkType {
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.batteryPill {
+  width: 20px;
+  height: 10px;
+  border: 1px solid #111b21;
+  border-radius: 3px;
+  padding: 1px;
+  display: flex;
+  align-items: center;
+}
+
+.batteryFill {
+  width: 75%;
+  height: 100%;
+  background: #111b21;
+  border-radius: 1px;
+}
+
+/* WhatsApp Chat Header */
+.chatHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.52rem 0.85rem;
+  background: #0D3B2E;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  z-index: 4;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.chatNameRow {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.chatName {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 155px;
+}
+
+.verifiedBadge {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.chatStatus {
+  font-size: 0.65rem;
+  color: #9FE2C5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.typingStatus {
+  color: #9FE2C5;
+  font-weight: 700;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #FFFFFF;
+}
+
+.replayHeaderBtn {
+  background: rgba(255, 255, 255, 0.18);
+  border: none;
+  border-radius: 50%;
+  color: #FFFFFF;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.replayHeaderBtn:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  color: #008069;
+  padding: 0.15rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Authentic WhatsApp Messages Canvas: With Original SVG Doodle Pattern */
+.messagesCanvas {
+  flex: 1;
+  overflow-y: auto;
+  overflow-anchor: none;
+  overscroll-behavior-y: contain;
+  padding: 0.85rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #efeae2;
+  /* Authentic WhatsApp Doodle Pattern */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200' fill='none' stroke='%23000000' stroke-width='1.1' stroke-opacity='0.05' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 28 h22 a6 6 0 0 1 6 6 v12 a6 6 0 0 1 -6 6 h-12 l-7 7 v-7 h-3 a6 6 0 0 1 -6 -6 v-12 a6 6 0 0 1 6 -6 z'/%3E%3Ccircle cx='110' cy='34' r='11'/%3E%3Cpath d='M110 28 v6 l5 3'/%3E%3Cpath d='M170 30 a5 5 0 0 0 -7 0 l-3 3 l-3 -3 a5 5 0 0 0 -7 7 l10 10 l10 -10 a5 5 0 0 0 0 -7 z'/%3E%3Cpath d='M32 94 h18 v14 a7 7 0 0 1 -7 7 h-4 a7 7 0 0 1 -7 -7 z'/%3E%3Cpath d='M50 98 h4 a3 3 0 0 1 3 3 v2 a3 3 0 0 1 -3 3 h-4'/%3E%3Cpolygon points='110,88 113,96 122,97 115,103 117,112 110,107 103,112 105,103 98,97 107,96'/%3E%3Ccircle cx='170' cy='100' r='10'/%3E%3Cpath d='M165 100 l3 4 l8 -7'/%3E%3Crect x='24' y='152' width='16' height='20' rx='3'/%3E%3Cpath d='M28 160 h8 M28 164 h8 M28 168 h5'/%3E%3Cpath d='M100 168 a14 14 0 0 1 24 0'/%3E%3Crect x='97' y='165' width='4' height='9' rx='2'/%3E%3Crect x='121' y='165' width='4' height='9' rx='2'/%3E%3Crect x='160' y='156' width='20' height='16' rx='3'/%3E%3Ccircle cx='170' cy='164' r='4.5'/%3E%3Cpath d='M166 156 v-2.5 h8 v2.5'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+  background-repeat: repeat;
+  scrollbar-width: none;
+}
+
+.messagesCanvas::-webkit-scrollbar {
+  display: none;
+}
+
+/* WhatsApp End-to-End Encryption Banner */
+.encryptionNotice {
+  background: #ffeecd;
+  color: #54656f;
+  border-radius: 8px;
+  font-size: 0.66rem;
+  line-height: 1.35;
+  padding: 0.4rem 0.65rem;
+  text-align: center;
+  max-width: 92%;
+  margin: 0 auto 0.4rem;
+  box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.lockIcon {
+  flex-shrink: 0;
+  color: #54656f;
+}
+
+.dateDivider {
+  display: flex;
+  justify-content: center;
+  margin: 0.2rem auto 0.6rem;
+}
+
+.dateDivider span {
+  background: #ffffff;
+  color: #54656f;
+  border-radius: 7.5px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+  letter-spacing: 0.02em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* WhatsApp Message Bubbles */
+.bubble {
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  max-width: 86%;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  position: relative;
+}
+
+.bot {
+  align-self: flex-start;
+  background: #ffffff;
+  color: #111b21;
+  border-top-left-radius: 0;
+  box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+  margin-left: 8px;
+}
+
+.userMsg {
+  align-self: flex-end;
+  background: #d9fdd3;
+  color: #111b21;
+  border-top-right-radius: 0;
+  box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+  margin-right: 8px;
+}
+
+.tailIn {
+  position: absolute;
+  top: 0;
+  left: -8px;
+}
+
+.tailOut {
+  position: absolute;
+  top: 0;
+  right: -8px;
+}
+
+.bubbleText {
+  color: #111b21;
+  font-size: 0.84rem;
+}
+
+/* WhatsApp Business Edge-to-Edge Action Buttons */
+.actionRow {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  margin-top: 0.45rem;
+  margin-left: -0.65rem;
+  margin-right: -0.65rem;
+  margin-bottom: -0.45rem;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: hidden;
+}
+
+.actionBtn {
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  color: #008069;
+  font-size: 0.76rem;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.actionBtn:last-child {
+  border-bottom: none;
+}
+
+.actionBtn:hover {
+  background: rgba(0, 128, 105, 0.06);
+}
+
+.msgMeta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  font-size: 0.65rem;
+  color: #667781;
+  margin-top: 0.2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Typing Bubble */
+.typingBubble {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.5rem 0.75rem;
+  min-height: 32px;
+}
+
+.typingDots {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  background: #8696a0;
+  border-radius: 50%;
+  animation: typingBounce 1.2s infinite ease-in-out;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-4px); }
+}
+
+/* Bottom Input Bar */
+.inputBar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.65rem;
+  background: #f0f2f5;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.attachBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  color: #54656f;
+  flex-shrink: 0;
+}
+
+.inputPill {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 0.35rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.fakeInput {
+  color: #8696a0;
+  font-size: 0.8rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  user-select: none;
+}
+
+.pillIcons {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.pillIconBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  color: #8696a0;
+}
+
+.micBtn {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #00a884;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.homeBarWrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0.3rem 0 0.4rem;
+  background: #f0f2f5;
+}
+
+.homeIndicator {
+  width: 100px;
+  height: 4px;
+  background: #000000;
+  border-radius: 99px;
+  opacity: 0.35;
+}
+
+/* ─── MODULE 3: AUTOMATED BACKSTAGE ACTIONS (MINIMAL & JARGON-FREE) ─── */
+.automationDocket {
+  width: 265px;
+  background: #F6F4EC;
+  border: 1px solid rgba(22, 22, 22, 0.09);
+  border-radius: 22px;
+  padding: 1.35rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.docketHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.docketTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.docketTitle {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.01em;
+}
+
+.docketSubhead {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.66rem;
+  color: #6B7280;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.actionStepList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.actionStepRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(22, 22, 22, 0.07);
+  border-radius: 11px;
+  padding: 0.55rem 0.65rem;
+  transition: all 0.22s ease;
+}
+
+.actionStepRow:hover {
+  border-color: rgba(13, 59, 46, 0.2);
+}
+
+.actionStepCurrent {
+  border-color: rgba(37, 135, 87, 0.4);
+  background: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(37, 135, 87, 0.1);
+}
+
+.actionStepDone {
+  border-color: rgba(13, 59, 46, 0.14);
+  background: #FFFFFF;
+}
+
+.checkCol {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.checkCirclePending {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(22, 22, 22, 0.16);
+  background: transparent;
+}
+
+.checkCircleDone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #0D3B2E;
+  color: #9FE2C5;
+  box-shadow: 0 1px 3px rgba(13, 59, 46, 0.25);
+}
+
+.actionContent {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.actionName {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.25;
+}
+
+.actionDesc {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.62rem;
+  color: #6B7280;
+  line-height: 1.35;
+  margin-top: 0.1rem;
+}
+
+.docketFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(22, 22, 22, 0.07);
+  margin-top: auto;
+}
+
+.footerSummaryItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.64rem;
+  color: #4B5563;
+  font-weight: 600;
+}
+
+.footerBullet {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(13, 59, 46, 0.35);
+  flex-shrink: 0;
+}
+
+/* ─── HERO CTA ROW ─── */
+.heroCtaRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 2rem;
+  z-index: 3;
+}
+
+/* ─── MOBILE REGULATOR STRIP (HIDDEN ON DESKTOP) ─── */
+.mobileRegulatorBar {
+  display: none;
+}
+
+/* ─── RESPONSIVE BREAKPOINTS ─── */
+@media (max-width: 1080px) {
+  .heroStageWrapper {
+    gap: 1rem;
+    max-width: 1000px;
+  }
+
+  .regulatorModule {
+    width: 225px;
+    padding: 1.15rem 0.85rem;
+  }
+
+  .phoneFrame {
+    width: 340px;
+    height: 700px;
+  }
+
+  .automationDocket {
+    width: 245px;
+    padding: 1.15rem 0.95rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .heroSection {
+    padding: 3.6rem 0 2.5rem;
+  }
+
+  .heroHeader {
+    padding-bottom: 0.5rem;
+  }
+
+  .heroTitle {
+    font-size: clamp(1.85rem, 6.8vw, 2.5rem);
+  }
+
+  /* Show mobile regulator bar above phone */
+  .mobileRegulatorBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.45rem;
+    width: 100%;
+    max-width: 385px;
+    background: #F6F4EC;
+    border: 1px solid rgba(22, 22, 22, 0.1);
+    border-radius: 14px;
+    padding: 0.4rem 0.55rem;
+    margin: 0.6rem auto 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    box-sizing: border-box;
+    z-index: 4;
+  }
+
+  .mobileDialKnobWrap {
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .mobileDialKnob {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #272E2B 0%, #111614 100%);
+    border: 1px solid #090C0B;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  }
+
+  .mobileDialNotch {
+    position: absolute;
+    top: 3px;
+    width: 2.5px;
+    height: 7px;
+    border-radius: 99px;
+    background: #EE4C24;
+  }
+
+  .mobileSectorPills {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    flex: 1;
+    padding: 0 0.2rem;
+  }
+
+  .mobileSectorPills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobileSectorBtn {
+    background: #FFFFFF;
+    border: 1px solid rgba(22, 22, 22, 0.12);
+    border-radius: 6px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #161616;
+    padding: 0.32rem 0.55rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+  }
+
+  .mobileSectorBtnActive {
+    background: #0D3B2E;
+    color: #9FE2C5;
+    border-color: #0D3B2E;
+  }
+
+  /* Hide desktop regulator module on mobile */
+  .regulatorModule {
+    display: none;
+  }
+
+  .heroStageWrapper {
+    margin-top: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 0.85rem;
+  }
+
+  .phoneMockupContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* In mobile view: Clean WhatsApp popup window without outer phone chassis */
+  .phoneFrame {
+    width: 100%;
+    max-width: 385px;
+    height: auto;
+    background: transparent;
+    border-radius: 18px;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+  }
+
+  .phoneScreen {
+    border-radius: 18px;
+    border: 1px solid rgba(22, 22, 22, 0.12);
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.06),
+      0 12px 32px rgba(13, 59, 46, 0.08);
+    height: 500px;
+  }
+
+  /* Hide smartphone status bar, dynamic island, and home indicator on mobile */
+  .statusBar,
+  .homeBarWrapper {
+    display: none;
+  }
+
+  /* WhatsApp Window Popup Header */
+  .chatHeader {
+    padding: 0.65rem 0.85rem;
+    background: #0D3B2E;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .chatHeader .chatName {
+    color: #FFFFFF;
+    font-size: 0.82rem;
+    max-width: 185px;
+  }
+
+  .chatHeader .chatStatus {
+    color: #9FE2C5;
+  }
+
+  .chatHeader .typingStatus {
+    color: #9FE2C5;
+    font-weight: 700;
+  }
+
+  .chatHeader .headerActions {
+    color: #FFFFFF;
+    gap: 0.35rem;
+  }
+
+  .chatHeader .headerVideoBtn,
+  .chatHeader .headerCallBtn {
+    display: none;
+  }
+
+  .chatHeader .backBtn,
+  .chatHeader .iconBtn {
+    color: #FFFFFF;
+  }
+
+  .chatHeader .replayHeaderBtn {
+    background: rgba(255, 255, 255, 0.18);
+    color: #FFFFFF;
+  }
+
+  .inputBar {
+    border-radius: 0 0 18px 18px;
+    padding: 0.45rem 0.65rem;
+  }
+
+  /* Automation Docket on mobile */
+  .automationDocket {
+    display: flex;
+    width: 100%;
+    max-width: 385px;
+    padding: 1rem 0.95rem;
+    border-radius: 18px;
+  }
+
+  .heroCtaRow {
+    margin-top: 1.5rem;
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .heroCtaRow a {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}

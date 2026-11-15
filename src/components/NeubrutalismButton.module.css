@@ -1,0 +1,86 @@
+/* ══════════════════════════════════════════════════════════════════
+   NEUBRUTALISM BUTTON MODULE
+   Native implementation of Framer Neubrutalism Button
+   Refined tactile editorial aesthetic with solid mechanical press physics
+   ══════════════════════════════════════════════════════════════════ */
+
+.neubrutalismBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-family: var(--font-hanken), sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  border: 1.5px solid rgba(13, 59, 46, 0.45);
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── Sizing Variants ─── */
+.default {
+  padding: 0.42rem 0.95rem;
+  font-size: 0.82rem;
+  box-shadow: 2.5px 2.5px 0px 0px rgba(13, 59, 46, 0.7);
+}
+
+.default:active {
+  transform: translate(2.5px, 2.5px);
+  box-shadow: 0px 0px 0px 0px rgba(13, 59, 46, 0.7);
+}
+
+.compact {
+  padding: 0.34rem 0.75rem;
+  font-size: 0.78rem;
+  box-shadow: 2px 2px 0px 0px rgba(13, 59, 46, 0.7);
+}
+
+.compact:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px 0px rgba(13, 59, 46, 0.7);
+}
+
+.mobile {
+  padding: 0.28rem 0.55rem;
+  font-size: 0.72rem;
+  gap: 0.3rem;
+  border-width: 1.5px;
+  box-shadow: 1.5px 1.5px 0px 0px rgba(13, 59, 46, 0.7);
+}
+
+.mobile:active {
+  transform: translate(1.5px, 1.5px);
+  box-shadow: 0px 0px 0px 0px rgba(13, 59, 46, 0.7);
+}
+
+/* ─── Typography & Icon ─── */
+.label {
+  line-height: 1;
+}
+
+.icon {
+  flex-shrink: 0;
+  color: currentColor;
+}
+
+/* ─── Desktop Hover State ─── */
+@media (hover: hover) and (pointer: fine) {
+  .neubrutalismBtn:hover {
+    background-color: #F4F0E8 !important;
+    transform: translateY(-1px);
+    box-shadow: 3px 3px 0px 0px rgba(13, 59, 46, 0.85);
+  }
+
+  .neubrutalismBtn:active {
+    transform: translate(2.5px, 2.5px);
+    box-shadow: 0px 0px 0px 0px rgba(13, 59, 46, 0.85);
+  }
+}

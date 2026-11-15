@@ -1,0 +1,231 @@
+/* Outer scroll track that provides runway for pinning */
+.shiftSectionTrack {
+  position: relative;
+  width: 100%;
+  height: 350vh;
+  background-color: var(--bg-beige, #F7F6EC);
+}
+
+/* Pinned sticky stage: stays locked in viewport during scroll runway */
+.stickyStage {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 4.5rem 0 2rem;
+}
+
+.headerBlock {
+  max-width: 820px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(2rem, 3.8vw, 3.35rem);
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+  color: #161616;
+  margin: 0;
+  text-wrap: balance;
+  will-change: transform;
+}
+
+.titleAccent {
+  font-style: italic;
+  font-weight: 400;
+  color: #0D3B2E;
+}
+
+/* Horizontal Ribbon Track */
+.ribbonOverflow {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0 1.5rem max(1.5rem, calc((100vw - 1280px) / 2 + 1.5rem));
+  touch-action: pan-y;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ribbonTrack {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: max-content;
+  will-change: transform;
+}
+
+.nodeBlock {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.stationCard {
+  width: 320px;
+  border-radius: 20px;
+  padding: 1.4rem 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(13, 59, 46, 0.14);
+  box-shadow:
+    0 18px 45px rgba(6, 36, 25, 0.07),
+    0 2px 6px rgba(6, 36, 25, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  user-select: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .stationCard:hover {
+    transform: translateY(-4px);
+    border-color: #0D3B2E;
+    box-shadow: 0 24px 55px rgba(6, 36, 25, 0.12);
+  }
+}
+
+.stationCard:active {
+  transform: scale(0.98);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.95rem;
+}
+
+.stationBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #0D3B2E;
+}
+
+.stationNum {
+  font-size: 0.76rem;
+  font-weight: 800;
+  background: rgba(13, 59, 46, 0.08);
+  color: #0D3B2E;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+}
+
+.badgePill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #5A5A58;
+}
+
+.cardHeading {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #161616;
+  margin: 0 0 0.25rem;
+  line-height: 1.3;
+}
+
+.cardSub {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #0D3B2E;
+  margin-bottom: 0.5rem;
+}
+
+.cardDetail {
+  font-size: 0.82rem;
+  line-height: 1.48;
+  color: #55544E;
+  margin: 0;
+}
+
+.connectorSpan {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.dashedConduit {
+  width: 50px;
+  height: 2px;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(13, 59, 46, 0.3) 0,
+    rgba(13, 59, 46, 0.3) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+.arrowCircle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #E2D8FF;
+  color: #0D3B2E;
+  border: 1px solid rgba(13, 59, 46, 0.16);
+}
+
+@media (max-width: 768px) {
+  .shiftSectionTrack {
+    height: 390svh; /* Pinned scroll runway: holds steady in viewport across all 6 stages */
+  }
+
+  .stickyStage {
+    padding: 3.8rem 0 1.25rem;
+    justify-content: center;
+  }
+
+  .headerBlock {
+    margin-bottom: 1.4rem;
+    padding: 0 1rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    line-height: 1.15;
+  }
+
+  .ribbonOverflow {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.35rem;
+    padding-bottom: 0.85rem;
+  }
+
+  .stationCard {
+    width: 280px;
+    padding: 1.15rem 1.2rem;
+  }
+
+  .dashedConduit {
+    width: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shiftSectionTrack {
+    height: auto;
+  }
+
+  .stickyStage {
+    position: relative;
+    height: auto;
+    padding: 4rem 0;
+  }
+
+  .ribbonOverflow {
+    overflow-x: auto;
+  }
+}

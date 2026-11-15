@@ -1,16 +1,37 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
+import Preloader from "@/components/Preloader";
+import LenisScrollProvider from "@/components/LenisScrollProvider";
+import ScrollBlueprintHud from "@/components/ScrollBlueprintHud";
+import InteractiveHeroConsole from "@/components/InteractiveHeroConsole";
+import CinematicPictureComplete from "@/components/CinematicPictureComplete";
+import CinematicAsymmetricGallery from "@/components/CinematicAsymmetricGallery";
+import SystemAnatomyStage from "@/components/SystemAnatomyStage";
 import {
-  Scissors, Truck, FileSpreadsheet, Building2, ShoppingCart,
-  Stethoscope, Home as HomeIcon, Car, Plane, Utensils, Headset, ArrowRight,
-  MessageSquare, Zap
-} from "lucide-react";
+  CinematicLineMaskHeading,
+  CinematicSubhead,
+} from "@/components/CinematicText";
+import {
+  SectionStamp,
+  ScrollParallaxReveal,
+  ApertureReveal,
+  BlueprintReveal,
+  FadeInSection,
+} from "@/components/SectionEntrance";
 import styles from "./page.module.css";
 import SocialProofMarquee from "@/components/SocialProofMarquee";
-import WhatsAppSimulator from "@/components/WhatsAppSimulator";
-import StatsSection from "@/components/StatsSection";
+import IntegrationMatrix from "@/components/IntegrationMatrix";
+import LollipopCarousel from "@/components/LollipopCarousel";
+import SectorPillShowcase from "@/components/SectorPillShowcase";
+import RoiCalculator from "@/components/RoiCalculator";
+import FaqSection from "@/components/FaqSection";
+import ResultsShowcase from "@/components/ResultsShowcase";
+import DocketTestimonials from "@/components/DocketTestimonials";
+import { ThermalReceipt } from "@/components/ThermalReceipt";
+import { getAllSectors } from "@/data/sectors";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
@@ -22,205 +43,190 @@ const stagger: Variants = {
   show: { transition: { staggerChildren: 0.12 } },
 };
 
-const sectors = [
-  { id: "salons", name: "Salons & Spas", icon: Scissors, desc: "Automate bookings, no-shows, commissions & inventory." },
-  { id: "tally", name: "Suppliers & Tally", icon: FileSpreadsheet, desc: "Instant invoice delivery and automated payment reminders." },
-  { id: "logistics", name: "Logistics", icon: Truck, desc: "Real-time tracking, NDR management, and slot confirmations." },
-  { id: "lead-management", name: "Lead Management", icon: Building2, desc: "Capture Meta ad leads and convert them over WhatsApp." },
-  { id: "ecommerce", name: "E-commerce", icon: ShoppingCart, desc: "Cart recovery, order tracking, and post-purchase follow-ups." },
-  { id: "hospitals", name: "Hospitals & Clinics", icon: Stethoscope, desc: "Appointment reminders, post-op follow-ups, and lab reports." },
-  { id: "real-estate", name: "Real Estate", icon: HomeIcon, desc: "Property catalogs, site-visit scheduling, and document flow." },
-  { id: "automobile", name: "Automobile", icon: Car, desc: "Service reminders, test drives, and vehicle pickup alerts." },
-  { id: "travel", name: "Travel & Hotels", icon: Plane, desc: "Booking confirmations, check-in reminders, and review requests." },
-  { id: "restaurants", name: "Restaurants", icon: Utensils, desc: "WhatsApp ordering, table reservations, and delivery updates." },
-  { id: "customer-support", name: "Customer Support", icon: Headset, desc: "Automated ticketing with intelligent agent routing." },
-];
-
-const whyUs = [
-  { icon: MessageSquare, title: "98% Open Rate", body: "WhatsApp messages get read. Email doesn't even come close." },
-  { icon: Zap, title: "Live in Days", body: "We pre-build sector-specific flows. No months-long implementations." },
-  { icon: FileSpreadsheet, title: "0% Hidden Markup", body: "Meta bills you directly. We charge a flat platform fee, nothing else." },
-];
-
 export default function Home() {
+  const sectors = getAllSectors();
+  const [revealReady, setRevealReady] = useState(false);
+  const [heroRevealed, setHeroRevealed] = useState(false);
+
+  useEffect(() => {
+    const fallback = setTimeout(() => {
+      setHeroRevealed(true);
+      setRevealReady(true);
+    }, 7000);
+    return () => clearTimeout(fallback);
+  }, []);
+
   return (
     <>
-      {/* ─── HERO ─── */}
-      <section className={styles.hero}>
-        <motion.div
-          className={`container ${styles.heroInner}`}
-          variants={stagger}
-          initial="hidden"
-          animate="show"
-        >
-          <motion.div variants={fadeUp} className="section-label">
-            The New Standard
-          </motion.div>
+      <Preloader
+        onStartReveal={() => setHeroRevealed(true)}
+        onFinish={() => {
+          setHeroRevealed(true);
+          setRevealReady(true);
+        }}
+      />
+      <LenisScrollProvider />
+      <ScrollBlueprintHud />
 
-          <motion.h1 variants={fadeUp} className={styles.heroTitle}>
-            The WhatsApp Operating System <br />
-            <em className="italic-serif">for modern business.</em>
-          </motion.h1>
+      {/* ─── THARO INTERACTIVE HARDWARE HERO CONSOLE ─── */}
+      <InteractiveHeroConsole
+        revealReady={revealReady}
+        heroRevealed={heroRevealed}
+      />
 
-          <motion.p variants={fadeUp} className={styles.heroSubtitle}>
-            We engineer sector-specific CRM, booking flows, and automations
-            entirely on WhatsApp — the app your customers never close.
-          </motion.p>
+      {/* ─── CINEMATIC SCROLL PICTURE COMPLETION (SKELETON TO REAL IMAGE) ─── */}
+      <div id="sec-system" style={{ scrollMarginTop: "6rem" }}>
+        <CinematicPictureComplete />
+      </div>
 
-          <motion.div variants={fadeUp} className={styles.heroCtas}>
-            <Link href="/contact" className="btn-primary">
-              Book a Live Demo
-            </Link>
-            <a
-              href="https://your-vercel-portfolio-link.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary"
-            >
-              Our Web Portfolio ↗
-            </a>
-          </motion.div>
-        </motion.div>
-      </section>
+      {/* ─── ASYMMETRIC SCROLL GALLERY (CARGOKITE VIGNETTES) ─── */}
+      <div id="sec-gallery" style={{ scrollMarginTop: "6rem" }}>
+        <CinematicAsymmetricGallery />
+      </div>
+
+      {/* ─── TRANSFORMATION ENGINE & PINNED ANATOMY ─── */}
+      <div id="sec-flow" style={{ paddingTop: "1rem", scrollMarginTop: "6rem" }}>
+        <SectionStamp label="System Anatomy" note="Voice & WhatsApp to ERP" />
+        <SystemAnatomyStage />
+      </div>
 
       {/* ─── MARQUEE ─── */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-      >
+      <FadeInSection>
         <SocialProofMarquee />
-      </motion.div>
+      </FadeInSection>
 
-      {/* ─── LIVE WHATSAPP SIMULATOR ─── */}
-      <section className={styles.simulatorSection}>
+      {/* ─── SOFTWARE & DASHBOARD INTEGRATION HUB ─── */}
+      <div id="integrations" style={{ scrollMarginTop: "6rem" }}>
+        <BlueprintReveal tag="Connected Software Stack">
+          <IntegrationMatrix />
+        </BlueprintReveal>
+      </div>
+
+      {/* ─── WHY THARO TECHNOLOGIES (FOREST SECTION) ─── */}
+      <div id="sec-results" style={{ scrollMarginTop: "6rem" }}>
+        <FadeInSection>
+          <ResultsShowcase />
+        </FadeInSection>
+      </div>
+
+      {/* ─── AUTOMATION CAPSULES (LOLLIPOP CAROUSEL) ─── */}
+      <section className={styles.capsulesSection}>
+        <SectionStamp label="Automations in Motion" note="Real business flows" />
         <div className="container">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            className={styles.sectionHead}
-          >
-            <motion.h2 variants={fadeUp} className={styles.sectionTitle}>
-              See it working. <em className="italic-serif">Right now.</em>
-            </motion.h2>
-            <motion.p variants={fadeUp} className={styles.sectionSubtitle}>
-              Watch real automation flows play out across 3 industries — no login required.
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <WhatsAppSimulator />
-          </motion.div>
+          <div className={styles.sectionHead}>
+            <CinematicLineMaskHeading
+              lines={[
+                { text: "Automations" },
+                { text: "in motion.", italic: true },
+              ]}
+            />
+            <CinematicSubhead className={styles.sectionSubtitle}>
+              Swipe through automated workflows running for active businesses.
+            </CinematicSubhead>
+          </div>
         </div>
-      </section>
 
-      {/* ─── STATS ─── */}
-      <StatsSection />
-
-      {/* ─── WHY UNCOMPLIC8 (DARK FOREST SECTION) ─── */}
-      <section className="theme-forest rounded-top section-pad">
-        <div className="container">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className={styles.sectionHead}
-          >
-            <motion.h2 variants={fadeUp} className={styles.sectionTitle}>
-              Built for results, <em className="italic-serif">not demos.</em>
-            </motion.h2>
-          </motion.div>
-
-          <motion.div
-            className={styles.whyGrid}
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-          >
-            {whyUs.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <motion.div key={i} variants={fadeUp} className={`${styles.whyCard} glass-panel glow-card`}>
-                  <div className={styles.whyIcon}><Icon size={22} /></div>
-                  <h3 className={styles.whyTitle}>{item.title}</h3>
-                  <p className={styles.whyBody}>{item.body}</p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
+        <ApertureReveal>
+          <LollipopCarousel />
+        </ApertureReveal>
       </section>
 
       {/* ─── ALL SECTORS (CHARCOAL SECTION) ─── */}
-      <section className="theme-dark rounded-top section-pad" style={{ marginTop: "-32px", paddingBottom: "10rem" }}>
+      <section
+        id="sec-sectors"
+        className={`theme-dark rounded-top rounded-bottom ${styles.sectorsSection}`}
+        style={{ scrollMarginTop: "6rem" }}
+      >
+        <SectionStamp label="Industry Solutions" note={`${sectors.length} ready workflows`} dark />
         <div className="container">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className={styles.sectionHead}
-          >
-            <motion.h2 variants={fadeUp} className={styles.sectionTitle}>
-              Engineered for <em className="italic-serif">your industry.</em>
-            </motion.h2>
-            <motion.p variants={fadeUp} className={styles.sectionSubtitle}>
-              Not generic automation — sector-specific playbooks with pre-built flows for 11+ verticals.
-            </motion.p>
-          </motion.div>
+          <div className={styles.sectionHead}>
+            <CinematicLineMaskHeading
+              dark
+              lines={[
+                { text: "Built for" },
+                { text: "your industry.", italic: true },
+              ]}
+            />
+            <CinematicSubhead dark className={styles.sectionSubtitle}>
+              Ready workflows for {sectors.length} industries.
+            </CinematicSubhead>
+          </div>
 
-          <motion.div
-            className={styles.sectorsGrid}
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-50px" }}
-          >
-            {sectors.map((s) => {
-              const Icon = s.icon;
-              return (
-                <motion.div key={s.id} variants={fadeUp}>
-                  <Link href={`/solutions/${s.id}`} className={`${styles.sectorCard} glow-card`}>
-                    <div className={styles.sectorIcon}><Icon size={20} /></div>
-                    <h3 className={styles.sectorName}>{s.name}</h3>
-                    <p className={styles.sectorDesc}>{s.desc}</p>
-                    <span className={styles.sectorLink}>Explore <ArrowRight size={14} /></span>
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+          <ApertureReveal>
+            <SectorPillShowcase />
+          </ApertureReveal>
         </div>
       </section>
 
-      {/* ─── FINAL CTA ─── */}
+      {/* ─── INTERACTIVE PRICE & ROI CALCULATOR ─── */}
+      <div id="sec-pricing" style={{ scrollMarginTop: "6rem" }}>
+        <BlueprintReveal tag="Transparent Savings Model">
+          <RoiCalculator />
+        </BlueprintReveal>
+      </div>
+
+      {/* ─── CLIENT TESTIMONIALS (DOCKET DRAWER) ─── */}
+      <div id="sec-proof" style={{ paddingTop: "1.5rem", scrollMarginTop: "6rem" }}>
+        <SectionStamp label="Client Stories" note="Verified results" />
+        <BlueprintReveal>
+          <DocketTestimonials />
+        </BlueprintReveal>
+      </div>
+
+      {/* ─── FAQS SECTION ─── */}
+      <FaqSection />
+
+      {/* ─── FINAL CTA + LIVE BILLING RECEIPT ─── */}
       <section className={styles.ctaBanner}>
+        <SectionStamp label="Ready to Deploy" note="5-day setup" />
         <motion.div
           className="container"
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 36 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.15, margin: "0px 0px -60px 0px" }}
+          transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className={styles.ctaTitle}>
-            Ready to <em className="italic-serif">uncomplicate</em> your business?
-          </h2>
-          <p className={styles.ctaBody}>
-            No hidden credits. No long implementation timelines. Go live in days, not months.
-          </p>
-          <div className={styles.ctaBtns}>
-            <Link href="/contact" className="btn-primary">Book a Free Demo</Link>
-            <Link href="/pricing" className="btn-secondary">View Pricing</Link>
+          <div className={styles.ctaSplit}>
+            <div className={styles.ctaCopy}>
+              <CinematicLineMaskHeading
+                lines={[
+                  { text: "Ready to" },
+                  { text: "simplify daily work?", italic: true },
+                ]}
+              />
+              <CinematicSubhead className={styles.ctaBody}>
+                Flat software pricing, 0% Meta markup, and full setup in 5 days.
+              </CinematicSubhead>
+              <div className={styles.ctaBtns}>
+                <Link href="/contact" className="btn-primary">Book a Free Demo</Link>
+                <Link href="/pricing" className="btn-secondary">View Pricing</Link>
+              </div>
+            </div>
+
+            <div className={styles.ctaReceipt}>
+              <ThermalReceipt
+                maxWidth={360}
+                storeName="THARO.TECH"
+                storeAddress="Transparent Billing · 0% Meta Markup"
+                status="Receipt settled"
+                orderNumber="TH-2026"
+                date="12 Nov 2026"
+                customer="Growth Clinic"
+                paymentMethod="Direct Meta + UPI"
+                items={[
+                  { name: "Tharo Growth Plan", qty: 1, price: 9999 },
+                  { name: "Meta Messages (At Cost)", qty: 1, price: 1200 },
+                ]}
+                taxRate={0}
+                showShipping
+                shipping={0}
+                currency="INR"
+                locale="en-IN"
+                footerMessage="Direct wholesale rates, zero extra markup"
+                stampText="PAID"
+                buttonLabel="Print sample bill"
+              />
+            </div>
           </div>
         </motion.div>
       </section>

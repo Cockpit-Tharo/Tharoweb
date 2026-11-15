@@ -1,12 +1,13 @@
 import styles from "./SocialProofMarquee.module.css";
 
 const logos = [
+  "Built for Real Estate & Clinics",
   "Trusted by 12+ Salons",
-  "Powered by Meta",
-  "Tally Gold Partner Integration",
+  "Powered by Official Meta Cloud API",
+  "Enterprise ERP Integration",
   "Used by 50+ Logistics Providers",
-  "99.9% Uptime",
-  "10M+ Messages Sent"
+  "99.9% Production Uptime",
+  "10M+ Messages Delivered",
 ];
 
 export default function SocialProofMarquee() {
@@ -16,7 +17,6 @@ export default function SocialProofMarquee() {
         {/* Render twice for infinite loop effect */}
         {[...logos, ...logos].map((logo, index) => (
           <div key={index} className={styles.marqueeItem}>
-            <span className={styles.dot}></span>
             {logo}
           </div>
         ))}

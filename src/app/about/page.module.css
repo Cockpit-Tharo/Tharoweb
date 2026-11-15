@@ -1,0 +1,597 @@
+.hero {
+  padding: 8rem 0 5rem;
+  text-align: center;
+  background-color: var(--bg-beige);
+  background-image: var(--bg-pattern-grid);
+  background-size: var(--bg-pattern-size);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroBrandBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(22, 22, 22, 0.08);
+  box-shadow: 0 12px 32px rgba(13, 59, 46, 0.06);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.heroBrandBadge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(13, 59, 46, 0.1);
+}
+
+.heroBrandImg {
+  display: block;
+  width: 128px;
+  height: auto;
+  object-fit: contain;
+}
+
+.heroTitle {
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  color: var(--text-dark);
+  max-width: 860px;
+  margin: 0 auto 1.5rem;
+}
+
+.heroSubtitle {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--text-dark-muted);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.sectionHead {
+  text-align: center;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionTitle {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  max-width: 600px;
+}
+
+/* 3 Pillars */
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.pillarCard {
+  padding: 3rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.pillarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.75rem;
+}
+
+.pillarNum {
+  font-family: var(--font-playfair), serif;
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--primary-lilac);
+  line-height: 1;
+}
+
+.pillarIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+}
+
+.pillarTitle {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+}
+
+.pillarSub {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent-amber);
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pillarDesc {
+  color: var(--text-light-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* Engineering Stack Grid */
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+}
+
+.techCard {
+  background: var(--bg-beige, #F7F6EC);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(22, 22, 22, 0.08);
+}
+
+.techIconWrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: rgba(13, 59, 46, 0.08);
+  color: var(--primary-dark, #0D3B2E);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.techTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-dark, #161616);
+  margin-bottom: 0.5rem;
+}
+
+.techDesc {
+  font-size: 0.875rem;
+  color: var(--text-dark-muted, #555);
+  line-height: 1.55;
+}
+
+/* Turnkey Onboarding Grid */
+.turnkeyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 4rem;
+}
+
+.turnkeyCard {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.turnkeyDay {
+  font-family: monospace;
+  font-size: 0.875rem;
+  color: var(--primary-lilac, #E2D8FF);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.turnkeyTitle {
+  font-size: 1.05rem;
+  color: #FFF;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.turnkeyDesc {
+  font-size: 0.8125rem;
+  color: var(--text-light-muted, #A3B8B0);
+  line-height: 1.5;
+}
+
+/* Values Grid */
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.valueCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+}
+
+.valueTitle {
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-light);
+}
+
+.valueDesc {
+  color: var(--text-light-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Portfolio Banner */
+.portfolioBanner {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* CTA */
+.ctaSection {
+  background-color: var(--bg-beige);
+  background-image: var(--bg-pattern-grid);
+  background-size: var(--bg-pattern-size);
+  padding: 7rem 0;
+  text-align: center;
+  border-top-left-radius: var(--radius-xl);
+  border-top-right-radius: var(--radius-xl);
+  margin-top: -32px;
+  position: relative;
+  z-index: 10;
+}
+
+.ctaTitle {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.ctaSubtitle {
+  font-size: 1.125rem;
+  color: var(--text-dark-muted);
+  max-width: 550px;
+  margin: 0 auto 2.5rem;
+}
+
+.ctaBtns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 5.75rem 0 1.85rem;
+  }
+
+  .heroBrandBadge {
+    margin-bottom: 1rem;
+    padding: 0.75rem 0.95rem;
+    border-radius: 18px;
+  }
+
+  .heroBrandImg {
+    width: 72px;
+  }
+
+  .heroTitle {
+    font-size: 1.72rem;
+    margin-bottom: 0;
+  }
+
+  .heroSubtitle {
+    display: none;
+  }
+
+  .sectionHead {
+    margin-bottom: 1.15rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.48rem;
+    margin-bottom: 0;
+  }
+
+  .sectionSubtitle,
+  .ctaSubtitle {
+    display: none;
+  }
+
+  .pillarSub,
+  .techDesc {
+    display: none;
+  }
+
+  .pillarsGrid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .pillarCard {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(247, 246, 236, 0.14) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    padding: 1.25rem 0;
+  }
+
+  .pillarCard:last-child {
+    border-bottom: none;
+    padding-bottom: 0.25rem;
+  }
+
+  .pillarHeader {
+    margin-bottom: 0.65rem;
+  }
+
+  .pillarNum {
+    font-size: 2rem;
+  }
+
+  .pillarIcon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .pillarTitle {
+    font-size: 1.28rem;
+  }
+
+  .techGrid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 1.5rem;
+  }
+
+  .techCard {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(22, 22, 22, 0.1);
+    border-radius: 0;
+    padding: 1.15rem 0;
+  }
+
+  .techCard:last-child {
+    border-bottom: none;
+    padding-bottom: 0.25rem;
+  }
+
+  .techIconWrap {
+    display: none;
+  }
+
+  .turnkeyGrid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 2.5rem;
+  }
+
+  .turnkeyCard {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    padding: 1rem 0;
+  }
+
+  .turnkeyCard:last-child {
+    border-bottom: none;
+  }
+
+  .valuesGrid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 2.25rem;
+  }
+
+  .valueCard {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    padding: 1.15rem 0;
+  }
+
+  .valueCard:last-child {
+    border-bottom: none;
+  }
+
+  .portfolioBanner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem 1.25rem;
+    border-radius: 20px;
+    gap: 1rem;
+  }
+
+  .ctaSection {
+    padding: 3.5rem 0;
+    margin-top: -16px;
+  }
+
+  .ctaTitle {
+    font-size: 1.55rem;
+  }
+
+  .ctaBtns {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ─── STUDIO MANIFESTO & COMMANDMENTS ─── */
+.manifestoSection {
+  padding: 6rem 0;
+  background-color: var(--bg-cream, #F7F6EC);
+  background-image:
+    linear-gradient(to right, rgba(22, 22, 22, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(22, 22, 22, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.manifestoTag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0D3B2E;
+  background: rgba(13, 59, 46, 0.08);
+  border: 1px solid rgba(13, 59, 46, 0.16);
+  padding: 0.3rem 0.65rem;
+  border-radius: 99px;
+  margin-bottom: 0.85rem;
+  display: inline-block;
+}
+
+.commandmentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.commandmentCard {
+  background: #FFFFFF;
+  border: 1px solid rgba(22, 22, 22, 0.08);
+  border-radius: 16px;
+  padding: 2.2rem 2rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+}
+
+.cmdNumRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cmdNumber {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #258757;
+}
+
+.cmdIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #258757;
+  opacity: 0.65;
+}
+
+.cmdTitle {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #161616;
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+.cmdDesc {
+  font-size: 0.92rem;
+  color: #555555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ─── TECH CARD UPGRADES ─── */
+.techTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.techBadge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #0D3B2E;
+  background: rgba(13, 59, 46, 0.08);
+  padding: 0.22rem 0.5rem;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+}
+
+/* ─── OPERATIONAL EVOLUTION TIMELINE ─── */
+.timelineSection {
+  padding: 5.5rem 0 6.5rem;
+  background: #FFFFFF;
+  border-top: 1px solid rgba(22, 22, 22, 0.06);
+}
+
+.milestoneGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.milestoneCard {
+  background: var(--bg-beige, #F7F6EC);
+  border: 1px solid rgba(22, 22, 22, 0.08);
+  border-radius: 14px;
+  padding: 1.8rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.milestoneHead {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.milestoneIcon {
+  color: #258757;
+}
+
+.milestonePhase {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #8A8880;
+  text-transform: uppercase;
+}
+
+.milestoneTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #161616;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.milestoneDetail {
+  font-size: 0.88rem;
+  color: #555555;
+  line-height: 1.55;
+  margin: 0;
+}

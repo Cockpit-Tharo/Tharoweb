@@ -1,0 +1,123 @@
+.entranceWrap {
+  position: relative;
+}
+
+.stampWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.95rem;
+}
+
+.stampAnchorPlus {
+  font-family: ui-monospace, monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0D3B2E;
+  line-height: 1;
+}
+
+.stampWrapDark .stampAnchorPlus {
+  color: #34D27B;
+}
+
+.hairlineRule {
+  flex: 1;
+  height: 1px;
+  transform-origin: 0% 50%;
+  background: rgba(13, 59, 46, 0.22);
+}
+
+.hairlineDark {
+  background: rgba(247, 246, 236, 0.2);
+}
+
+.stampRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5C5B55;
+  margin-bottom: 1.5rem;
+}
+
+.stampRowDark {
+  color: rgba(247, 246, 236, 0.68);
+}
+
+.stampLeft {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.parallaxSlot {
+  will-change: transform, opacity;
+}
+
+.apertureOuter {
+  position: relative;
+}
+
+.blueprintRevealWrap {
+  position: relative;
+}
+
+.blueprintMetaRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.blueprintTag {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(13, 59, 46, 0.56);
+  white-space: nowrap;
+}
+
+.blueprintRule {
+  flex: 1;
+  height: 1px;
+  background: rgba(13, 59, 46, 0.14);
+  transform-origin: 0% 50%;
+}
+
+.blueprintSlot {
+  position: relative;
+  will-change: transform;
+}
+
+.hatchOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  border-radius: 28px;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(13, 59, 46, 0.045) 0,
+    rgba(13, 59, 46, 0.045) 1px,
+    transparent 1px,
+    transparent 12px
+  );
+}
+
+@media (max-width: 768px) {
+  .blueprintSlot {
+    transform: none !important;
+  }
+  .apertureOuter > div {
+    clip-path: none !important;
+    transform: none !important;
+  }
+}

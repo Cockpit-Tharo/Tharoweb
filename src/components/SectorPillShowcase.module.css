@@ -1,0 +1,303 @@
+/* ══════════════════════════════════════════════════════════════════
+   SECTOR PILL SHOWCASE
+   Lightweight 1-Row Sector Pill Switcher · Zero 3D Lag · Fast UX
+   ══════════════════════════════════════════════════════════════════ */
+
+.showcaseShell {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+/* ─── 1-Row Fast Sector Pills ─── */
+.pillsScrollContainer {
+  margin-bottom: 1.25rem;
+}
+
+.pillsTrack {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.25rem 0.5rem;
+}
+
+.pillBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.825rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.18s ease;
+  user-select: none;
+}
+
+.pillBtn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.pillActiveBg {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: #FAF8F5;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.pillIcon {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.pillLabel {
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.01em;
+}
+
+.pillBtnActive {
+  color: #0D3B2E !important;
+  border-color: #FAF8F5 !important;
+  font-weight: 700;
+}
+
+.pillBtnActive .pillIcon {
+  opacity: 1;
+  color: #0D3B2E;
+}
+
+/* ─── Active Sector Detailed Surface ─── */
+.stageWindow {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+}
+
+.stageCard {
+  width: 100%;
+  background: #091A14;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 2.25rem 2.25rem 2rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+}
+
+.stageGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* ─── Left Column: Narrative ─── */
+.narrativeCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.sectorTitle {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 500;
+  line-height: 1.25;
+  color: #FFFFFF;
+  margin: 0 0 0.85rem;
+  letter-spacing: -0.02em;
+}
+
+.titleItalic {
+  font-style: italic;
+  color: #A7D7C5;
+  font-weight: 400;
+}
+
+.sectorSubtitle {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 1.5rem;
+  max-width: 540px;
+}
+
+.actionRow {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.exploreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.35rem;
+  border-radius: 999px;
+  background: #208858;
+  color: #FFFFFF;
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.exploreBtn:hover {
+  background: #27A870;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.bookDemoBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bookDemoBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ─── Right Column: Specifications ─── */
+.specsCol {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 1.4rem 1.5rem;
+  text-align: left;
+}
+
+.specsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.specItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.specCheckWrap {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(32, 136, 88, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.specCheckIcon {
+  color: #208858;
+}
+
+.specText {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+}
+
+.specsFoot {
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.footLabel {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+}
+
+.footTech {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ─── Responsive Breakdown ─── */
+@media (max-width: 900px) {
+  .stageGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .stageCard {
+    padding: 1.5rem 1.25rem;
+    border-radius: 20px;
+  }
+
+  .sectorTitle {
+    font-size: 1.45rem;
+  }
+
+  .sectorSubtitle {
+    font-size: 0.88rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .actionRow {
+    width: 100%;
+  }
+
+  .exploreBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bookDemoBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+  .pillActiveBg,
+  .stageCard,
+  .specItem {
+    animation: none !important;
+    transition: opacity 0.15s ease !important;
+  }
+}

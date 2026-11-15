@@ -1,0 +1,113 @@
+.shell {
+  position: relative;
+  max-width: 100%;
+  min-width: 0;
+  --scroll-fade-rgb: 247, 246, 236;
+  --scroll-btn-bg: #ffffff;
+  --scroll-btn-border: rgba(22, 22, 22, 0.14);
+  --scroll-btn-color: #12281e;
+  --scroll-btn-shadow: 0 2px 8px rgba(18, 40, 30, 0.12);
+}
+
+.toneBeige {
+  --scroll-fade-rgb: 247, 246, 236;
+  --scroll-btn-bg: #ffffff;
+  --scroll-btn-border: rgba(22, 22, 22, 0.14);
+  --scroll-btn-color: #12281e;
+  --scroll-btn-shadow: 0 2px 8px rgba(18, 40, 30, 0.12);
+}
+
+.toneSurface {
+  --scroll-fade-rgb: 255, 255, 255;
+  --scroll-btn-bg: #ffffff;
+  --scroll-btn-border: rgba(22, 22, 22, 0.14);
+  --scroll-btn-color: #12281e;
+  --scroll-btn-shadow: 0 2px 8px rgba(18, 40, 30, 0.12);
+}
+
+.toneDark {
+  --scroll-fade-rgb: 22, 22, 22;
+  --scroll-btn-bg: #242424;
+  --scroll-btn-border: rgba(255, 255, 255, 0.18);
+  --scroll-btn-color: #f4f4f0;
+  --scroll-btn-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.toneForestDark {
+  --scroll-fade-rgb: 17, 27, 23;
+  --scroll-btn-bg: #182721;
+  --scroll-btn-border: rgba(255, 255, 255, 0.18);
+  --scroll-btn-color: #ecf5f0;
+  --scroll-btn-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.track {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.fadeLeft,
+.fadeRight {
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  width: 38px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.fadeLeft {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(var(--scroll-fade-rgb), 0.96) 35%,
+    rgba(var(--scroll-fade-rgb), 0)
+  );
+}
+
+.fadeRight {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgba(var(--scroll-fade-rgb), 0.96) 35%,
+    rgba(var(--scroll-fade-rgb), 0)
+  );
+}
+
+.scrollBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background-color: var(--scroll-btn-bg);
+  border: 1px solid var(--scroll-btn-border);
+  color: var(--scroll-btn-color);
+  box-shadow: var(--scroll-btn-shadow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+  padding: 0;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.scrollBtn:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.scrollBtnLeft {
+  left: 4px;
+}
+
+.scrollBtnRight {
+  right: 4px;
+}
