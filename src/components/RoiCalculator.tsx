@@ -232,7 +232,6 @@ export default function RoiCalculator() {
           {/* Top Overarching Ledger Bar */}
           <div className={styles.topBar}>
             <div className={styles.currencyTitleGroup}>
-              <span className={styles.topBarDot} />
               <span className={styles.currencyLabel}>ROI Calculator</span>
             </div>
 
