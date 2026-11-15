@@ -89,6 +89,11 @@ export default function Footer() {
                   Transparent Pricing
                 </Link>
               </li>
+              <li>
+                <Link href="/pricing/meta-charges" className={styles.navLink}>
+                  Meta Charges &amp; 0% Markup
+                </Link>
+              </li>
             </ul>
           </div>
 

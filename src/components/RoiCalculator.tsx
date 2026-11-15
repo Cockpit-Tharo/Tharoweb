@@ -369,6 +369,7 @@ export default function RoiCalculator() {
                   <div className={styles.metaSpendBadgeRow}>
                     <MessageCircle size={15} className={styles.metaShieldIcon} />
                     <span className={styles.metaSpendLabel}>Estimated WhatsApp Message Spend</span>
+                    <span className={styles.metaZeroMarkupBadge}>0% Markup</span>
                   </div>
                   <div className={styles.metaRateBadge}>
                     <span>Rate: {curr.rateDisplay}</span>
@@ -397,9 +398,14 @@ export default function RoiCalculator() {
                     />
                   </div>
 
-                  <div className={styles.metaFooterNote}>
-                    Direct official WhatsApp business billing based on conversation volume.
+                  <div className={styles.metaSpendExplainer}>
+                    <strong>0% Markup Guarantee:</strong> Meta charges your card directly at official wholesale rates. Tharo takes ₹0 commission on your message volume.
                   </div>
+
+                  <Link href="/pricing/meta-charges" className={styles.metaLearnMoreLink}>
+                    <span>How Meta charges &amp; 0% markup explained</span>
+                    <ArrowRight size={12} />
+                  </Link>
                 </div>
               </div>
 

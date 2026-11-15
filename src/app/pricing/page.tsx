@@ -337,6 +337,29 @@ export default function PricingPage() {
           <div className={styles.metaNotice}>
             <span>Rates reflect official Meta Cloud API India pricing. International destination tariffs apply when messaging non-Indian phone numbers.</span>
           </div>
+
+          <motion.div
+            className={styles.metaExplainerCard}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className={styles.metaExplainerPill}>
+              <ShieldCheck size={13} />
+              <span>Direct Wholesale Pass-Through</span>
+            </div>
+            <h3 className={styles.metaExplainerHeading}>
+              Why our 0% markup model saves you thousands each month.
+            </h3>
+            <p className={styles.metaExplainerBody}>
+              Traditional aggregators mark up conversation costs by 20% to 50% or trap your money in expiring prepaid wallet credits. With Tharo, you connect your own Meta Business Manager. Meta bills your corporate card directly at published wholesale rates, and we take ₹0 cut on your message volume.
+            </p>
+            <Link href="/pricing/meta-charges" className={styles.metaExplainerLink}>
+              <span>Read the Complete Meta Billing &amp; 0% Markup Guide</span>
+              <ArrowRight size={14} />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
