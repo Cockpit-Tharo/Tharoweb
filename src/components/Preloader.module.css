@@ -255,7 +255,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: min(365px, calc(100vw - 2rem));
-  height: clamp(720px, 80vh, 765px);
+  height: clamp(600px, 78vh, 760px);
   border-radius: 50px;
   background: #18181b;
   padding: 9px;
@@ -982,5 +982,43 @@
   .cornerMarkBottomLeft,
   .cornerMarkBottomRight {
     display: none;
+  }
+}
+
+/* ─── SHORT & WIDE DESKTOP LAPTOP SCREENS (1366x768, 1440x900, 1536x864 at 125% scaling) ─── */
+@media (min-width: 769px) and (max-height: 840px) {
+  .morphingCard {
+    height: clamp(480px, calc(100vh - 180px), 630px);
+    width: min(330px, calc((100vh - 180px) * 0.52));
+    border-radius: 42px;
+  }
+  .consoleScreen {
+    border-radius: 35px;
+  }
+  .bootLogoImg {
+    width: 58px;
+  }
+  .bootBarContainer {
+    margin-top: 24px;
+  }
+}
+
+@media (min-width: 769px) and (max-height: 700px) {
+  .morphingCard {
+    height: clamp(420px, calc(100vh - 130px), 520px);
+    width: min(290px, calc((100vh - 130px) * 0.52));
+    border-radius: 36px;
+  }
+  .consoleScreen {
+    border-radius: 30px;
+  }
+  .bootLogoImg {
+    width: 48px;
+  }
+  .bootBrandText {
+    font-size: 11px;
+  }
+  .bootBarContainer {
+    margin-top: 18px;
   }
 }

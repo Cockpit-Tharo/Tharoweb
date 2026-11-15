@@ -2257,11 +2257,11 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: 0.85rem 0 0.8rem;
+    padding: 2.75rem 0 3.25rem;
   }
 
   .header {
-    margin-bottom: 0.45rem;
+    margin-bottom: 1.25rem;
   }
 
   .title {
@@ -3085,7 +3085,7 @@
 
 @media (max-width: 380px) {
   .section {
-    padding: 0.75rem 0 0.7rem;
+    padding: 2.25rem 0 2.75rem;
   }
 
   .title {

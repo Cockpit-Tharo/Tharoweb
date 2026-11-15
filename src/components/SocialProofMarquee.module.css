@@ -62,3 +62,9 @@
     transform: translateX(-50%);
   }
 }
+
+@media (max-width: 768px) {
+  .marqueeContainer {
+    padding: 2.75rem 0;
+  }
+}

@@ -184,12 +184,14 @@ export default function Preloader({ onStartReveal, onFinish }: PreloaderProps) {
             if (targetEl) {
               const r = targetEl.getBoundingClientRect();
               const isMob = window.innerWidth <= 768;
+              const computedRadius =
+                parseFloat(window.getComputedStyle(targetEl).borderRadius) || (isMob ? 18 : 50);
               measuredRect = {
                 left: r.left,
                 top: r.top,
                 width: r.width,
                 height: r.height,
-                borderRadius: isMob ? 18 : 50,
+                borderRadius: computedRadius,
               };
             } else {
               // Precise geometric fallback if ref is still mounting
