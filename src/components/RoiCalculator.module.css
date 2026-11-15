@@ -449,12 +449,12 @@
 /* ─── DEDICATED WHATSAPP SPEND CARD ─── */
 .metaSpendCard {
   background: linear-gradient(135deg, rgba(13, 59, 46, 0.04) 0%, rgba(16, 138, 88, 0.08) 100%);
-  border: 1px solid rgba(13, 59, 46, 0.16);
-  border-radius: 20px;
-  padding: 1.25rem 1.45rem;
+  border: 1px solid rgba(13, 59, 46, 0.14);
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 0.5rem;
 }
 
 .metaSpendHeader {
@@ -462,7 +462,6 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  flex-wrap: wrap;
 }
 
 .metaSpendBadgeRow {
@@ -482,129 +481,51 @@
   color: var(--bg-forest, #0D3B2E);
 }
 
-.metaRateBadge {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.25rem;
-  background: #FFFFFF;
-  border: 1px solid rgba(13, 59, 46, 0.16);
-  padding: 0.2rem 0.55rem;
-  border-radius: 6px;
-  font-family: var(--font-jetbrains, monospace);
-  font-size: 0.76rem;
-  font-weight: 700;
-  color: var(--bg-forest, #0D3B2E);
-}
-
-.metaRateUnit {
-  font-family: var(--font-hanken), sans-serif;
-  font-size: 0.68rem;
-  font-weight: 500;
-  color: var(--text-dark-muted, #5A5D5A);
-}
-
-.metaSpendBody {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.metaSpendRow {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
 .metaSpendMonthlyAmount {
   font-family: var(--font-playfair), serif;
-  font-size: 1.55rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--bg-forest, #0D3B2E);
-  line-height: 1.1;
+  line-height: 1;
   display: inline-flex;
   align-items: baseline;
 }
 
 .metaSpendMonthlyUnit {
   font-family: var(--font-hanken), sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 500;
   color: var(--text-dark-muted, #5A5D5A);
   margin-left: 0.25rem;
 }
 
-.metaSpendSub {
-  font-family: var(--font-hanken), sans-serif;
-  font-size: 0.75rem;
-  color: var(--text-dark-muted, #5A5D5A);
-  margin-top: 0.2rem;
+.metaSpendFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid rgba(13, 59, 46, 0.08);
 }
 
-.metaProgressTrack {
-  width: 100%;
-  height: 6px;
-  background: rgba(13, 59, 46, 0.12);
-  border-radius: 9999px;
-  overflow: hidden;
-}
-
-.metaProgressFill {
-  height: 100%;
-  background: linear-gradient(90deg, #108A58 0%, #20B87C 100%);
-  border-radius: 9999px;
-  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.metaFooterNote {
+.metaSpendDirectNote {
   font-family: var(--font-hanken), sans-serif;
   font-size: 0.74rem;
   color: var(--text-dark-muted, #5A5D5A);
-  line-height: 1.4;
-}
-
-.metaZeroMarkupBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  background: rgba(16, 138, 88, 0.12);
-  border: 1px solid rgba(16, 138, 88, 0.25);
-  color: #108A58;
-  padding: 0.18rem 0.5rem;
-  border-radius: 999px;
-  font-family: var(--font-hanken), sans-serif;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.metaSpendExplainer {
-  font-family: var(--font-hanken), sans-serif;
-  font-size: 0.75rem;
-  color: var(--text-dark-muted, #5A5D5A);
-  line-height: 1.45;
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(13, 59, 46, 0.08);
-  border-radius: 8px;
-  padding: 0.5rem 0.65rem;
-}
-
-.metaSpendExplainer strong {
-  color: var(--bg-forest, #0D3B2E);
+  line-height: 1.35;
 }
 
 .metaLearnMoreLink {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.25rem;
   font-family: var(--font-hanken), sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-weight: 700;
   color: #108A58;
   text-decoration: none;
   transition: color 0.2s ease, transform 0.2s ease;
-  width: fit-content;
+  white-space: nowrap;
 }
 
 .metaLearnMoreLink:hover {
@@ -1123,87 +1044,51 @@
   }
 
   .rangeBounds {
-    font-size: 0.62rem;
+    display: none;
   }
 
   .presetsRow {
-    gap: 0.3rem;
-    padding-top: 0.1rem;
-  }
-
-  .presetsLabel {
-    display: none;
-  }
-
-  .presetChips {
-    gap: 0.25rem;
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .presetChip {
-    font-size: 0.66rem;
-    padding: 0.16rem 0.42rem;
-    border-radius: 6px;
-    flex: 1;
-    justify-content: center;
-  }
-
-  .presetChipFull {
-    display: none;
-  }
-
-  .presetChipShort {
-    display: inline;
-  }
-
-  .presetChipTag {
     display: none;
   }
 
   /* Compact Spend Card */
   .metaSpendCard {
-    padding: 0.55rem 0.75rem;
+    padding: 0.65rem 0.8rem;
     border-radius: 12px;
     gap: 0.35rem;
   }
 
   .metaSpendHeader {
-    gap: 0.35rem;
-  }
-
-  .metaSpendLabel {
-    font-size: 0.74rem;
-  }
-
-  .metaRateBadge {
-    font-size: 0.68rem;
-    padding: 0.12rem 0.4rem;
-  }
-
-  .metaSpendRow {
     align-items: center;
   }
 
+  .metaSpendLabel {
+    font-size: 0.76rem;
+  }
+
   .metaSpendMonthlyAmount {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
   }
 
   .metaSpendMonthlyUnit {
     font-size: 0.68rem;
   }
 
-  .metaSpendSub {
-    display: none;
+  .metaSpendFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    padding-top: 0.25rem;
   }
 
-  .metaProgressTrack {
-    height: 4px;
+  .metaSpendDirectNote {
+    font-size: 0.68rem;
+    line-height: 1.3;
   }
 
-  .metaFooterNote {
-    font-size: 0.66rem;
-    line-height: 1.25;
+  .metaLearnMoreLink {
+    font-size: 0.68rem;
+    align-self: flex-start;
   }
 
   .mobileAdvanceBtn {

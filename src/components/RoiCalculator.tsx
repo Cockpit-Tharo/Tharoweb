@@ -124,10 +124,10 @@ const currencyConfigs: Record<CurrencyCode, CurrencyConfig> = {
 };
 
 const VOLUME_PRESETS = [
-  { label: "20 / day", shortLabel: "20/d", value: 20, tag: "Boutique" },
-  { label: "45 / day", shortLabel: "45/d", value: 45, tag: "Growing" },
-  { label: "80 / day", shortLabel: "80/d", value: 80, tag: "High Volume" },
-  { label: "120+ / day", shortLabel: "120+/d", value: 120, tag: "Multi-Branch" },
+  { label: "20 daily", shortLabel: "20", value: 20, tag: "Boutique" },
+  { label: "45 daily", shortLabel: "45", value: 45, tag: "Growing" },
+  { label: "80 daily", shortLabel: "80", value: 80, tag: "High Volume" },
+  { label: "120+ daily", shortLabel: "120+", value: 120, tag: "Multi-Branch" },
 ];
 
 export default function RoiCalculator() {
@@ -201,7 +201,7 @@ export default function RoiCalculator() {
 
   // WhatsApp prefilled message
   const whatsappPrefill = encodeURIComponent(
-    `Hi Tharo Technologies, I modeled our economics: ~${dailyChats} customer chats a day with ~${formatMoney(ticketValue)} average ticket. Estimated ~${formatMoney(whatsAppSpend)}/mo WhatsApp spend (${curr.code}) and ~+${formatMoney(netMonthlyGain)}/mo net return. I would like to explore this turnkey workflow for our practice.`
+    `Hi Tharo Technologies, I modeled our economics: ~${dailyChats} customer chats daily with ~${formatMoney(ticketValue)} average booking. Estimated ~${formatMoney(whatsAppSpend)} monthly WhatsApp spend (${curr.code}) and ~+${formatMoney(netMonthlyGain)} monthly net return. I would like to explore this turnkey workflow for our practice.`
   );
   const roiWhatsAppUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${whatsappPrefill}`;
 
@@ -255,7 +255,7 @@ export default function RoiCalculator() {
               onClick={() => setMobileTab("inputs")}
               className={`${styles.mobileNavBtn} ${mobileTab === "inputs" ? styles.mobileNavActive : ""}`}
             >
-              <span>1. Volume &amp; Costs</span>
+              <span>1. Volume &amp; Spend</span>
             </button>
             <button
               type="button"
@@ -264,7 +264,7 @@ export default function RoiCalculator() {
               onClick={() => setMobileTab("results")}
               className={`${styles.mobileNavBtn} ${mobileTab === "results" ? styles.mobileNavActive : ""}`}
             >
-              <span>2. Profit (+{formatMoney(netMonthlyGain)})</span>
+              <span>2. Projected Profit</span>
             </button>
           </div>
 
@@ -280,7 +280,6 @@ export default function RoiCalculator() {
               <div className={styles.controlBox}>
                 <div className={styles.controlHeader}>
                   <div className={styles.controlTitleGroup}>
-                    <div className={styles.controlIndexBadge}>01</div>
                     <div>
                       <h3 className={styles.controlTitle}>Daily Inbound Conversations</h3>
                       <p className={styles.controlSubtitle}>
@@ -301,7 +300,7 @@ export default function RoiCalculator() {
                     </button>
                     <div className={styles.numericValueDisplay}>
                       <span className={styles.numericLarge}>{dailyChats}</span>
-                      <span className={styles.numericUnit}>chats / day</span>
+                      <span className={styles.numericUnit}>chats daily</span>
                     </div>
                     <button
                       type="button"
@@ -331,9 +330,9 @@ export default function RoiCalculator() {
                     aria-label={`Daily conversations: ${dailyChats} per day`}
                   />
                   <div className={styles.rangeBounds}>
-                    <span>10 / day</span>
-                    <span>65 / day</span>
-                    <span>120+ / day</span>
+                    <span>10 chats</span>
+                    <span>65 chats</span>
+                    <span>120+ chats</span>
                   </div>
                 </div>
 
@@ -362,51 +361,28 @@ export default function RoiCalculator() {
                 <div className={styles.metaSpendHeader}>
                   <div className={styles.metaSpendBadgeRow}>
                     <MessageCircle size={15} className={styles.metaShieldIcon} />
-                    <span className={styles.metaSpendLabel}>Estimated WhatsApp Message Spend (0% Markup)</span>
+                    <span className={styles.metaSpendLabel}>Estimated WhatsApp Spend</span>
                   </div>
-                  <div className={styles.metaRateBadge}>
-                    <span>Rate: {curr.rateDisplay}</span>
-                    <span className={styles.metaRateUnit}>/ msg</span>
+                  <div className={styles.metaSpendMonthlyAmount}>
+                    ~{formatMoney(whatsAppSpend)} <span className={styles.metaSpendMonthlyUnit}>monthly</span>
                   </div>
                 </div>
 
-                <div className={styles.metaSpendBody}>
-                  <div className={styles.metaSpendRow}>
-                    <div>
-                      <div className={styles.metaSpendMonthlyAmount}>
-                        ~ <span className={styles.currencyPrefix}>{curr.symbol}</span>
-                        <span>{formatNumberOnly(whatsAppSpend)}</span>
-                        <span className={styles.metaSpendMonthlyUnit}> / mo</span>
-                      </div>
-                      <div className={styles.metaSpendSub}>
-                        ~{monthlyInquiries.toLocaleString()} monthly customer conversations in {curr.country}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={styles.metaProgressTrack}>
-                    <div
-                      className={styles.metaProgressFill}
-                      style={{ width: `${chatsProgressPct}%` }}
-                    />
-                  </div>
-
-                  <div className={styles.metaSpendExplainer}>
-                    <strong>How pricing works:</strong> You pay for our system. Rest, Meta charges you directly per message you send at wholesale cost. Zero middleman markup.
-                  </div>
-
+                <div className={styles.metaSpendFooter}>
+                  <span className={styles.metaSpendDirectNote}>
+                    Direct Meta wholesale billing (0% markup) · {curr.rateDisplay} per message in {curr.country}
+                  </span>
                   <Link href="/pricing/meta-charges" className={styles.metaLearnMoreLink}>
-                    <span>Learn how Meta charges per message &amp; 0% markup</span>
-                    <ArrowRight size={12} />
+                    <span>How Meta charges</span>
+                    <ArrowRight size={11} />
                   </Link>
                 </div>
               </div>
 
-              {/* SLIDER 2: AVERAGE ORDER / TICKET VALUE */}
+              {/* SLIDER 2: AVERAGE ORDER / BOOKING VALUE */}
               <div className={styles.controlBox}>
                 <div className={styles.controlHeader}>
                   <div className={styles.controlTitleGroup}>
-                    <div className={styles.controlIndexBadge}>02</div>
                     <div>
                       <h3 className={styles.controlTitle}>Average Order or Booking Value</h3>
                       <p className={styles.controlSubtitle}>
@@ -430,7 +406,7 @@ export default function RoiCalculator() {
                         <span className={styles.currencyPrefix}>{curr.symbol}</span>
                         <span>{formatNumberOnly(ticketValue)}</span>
                       </span>
-                      <span className={styles.numericUnit}>avg ticket</span>
+                      <span className={styles.numericUnit}>average booking</span>
                     </div>
                     <button
                       type="button"
@@ -492,7 +468,7 @@ export default function RoiCalculator() {
                 className={styles.mobileAdvanceBtn}
                 aria-label="View Net Profit Return"
               >
-                <span>View Estimated Profit (+{formatMoney(netMonthlyGain)}/mo)</span>
+                <span>View Projected Profit (+{formatMoney(netMonthlyGain)})</span>
                 <ArrowRight size={14} />
               </button>
             </div>
@@ -517,7 +493,7 @@ export default function RoiCalculator() {
                   <div className={styles.auditRow}>
                     <div className={styles.auditLabelCol}>
                       <span className={styles.auditLabel}>Monthly Inquiries Handled</span>
-                      <span className={styles.auditSub}>At {dailyChats} inbound chats/day</span>
+                      <span className={styles.auditSub}>At {dailyChats} chats daily</span>
                     </div>
                     <span className={styles.auditValue}>
                       {monthlyInquiries.toLocaleString()} chats
@@ -538,7 +514,7 @@ export default function RoiCalculator() {
                       <span className={styles.auditSub}>From automated follow-ups &amp; reminders</span>
                     </div>
                     <span className={styles.auditValueGreen}>
-                      +{recoveredBookings} bookings / mo
+                      +{recoveredBookings} bookings monthly
                     </span>
                   </div>
 
@@ -581,7 +557,7 @@ export default function RoiCalculator() {
                     <span className={styles.netYieldNumber}>
                       {formatNumberOnly(netMonthlyGain)}
                     </span>
-                    <span className={styles.netYieldPeriod}>/ mo</span>
+                    <span className={styles.netYieldPeriod}>monthly</span>
                   </div>
 
                   <div className={styles.netYieldAnnual}>
