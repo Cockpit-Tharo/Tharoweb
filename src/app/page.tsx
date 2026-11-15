@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Preloader from "@/components/Preloader";
 import LenisScrollProvider from "@/components/LenisScrollProvider";
 import ScrollBlueprintHud from "@/components/ScrollBlueprintHud";
@@ -63,6 +65,15 @@ export default function Home() {
         onFinish={() => {
           setHeroRevealed(true);
           setRevealReady(true);
+          if (typeof window !== "undefined") {
+            gsap.registerPlugin(ScrollTrigger);
+            requestAnimationFrame(() => {
+              ScrollTrigger.refresh();
+            });
+            setTimeout(() => {
+              ScrollTrigger.refresh();
+            }, 120);
+          }
         }}
       />
       <LenisScrollProvider />

@@ -123,7 +123,7 @@ export default function CinematicPictureComplete() {
 
     const trigger = ScrollTrigger.create({
       trigger: containerRef.current,
-      start: "top 68px",
+      start: "top 72px",
       end: "bottom bottom",
       scrub: 0.2,
       onUpdate: (self) => {
@@ -176,7 +176,15 @@ export default function CinematicPictureComplete() {
       },
     });
 
-    return () => trigger.kill();
+    const onResize = () => {
+      ScrollTrigger.refresh();
+    };
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+      trigger.kill();
+    };
   }, []);
 
   return (

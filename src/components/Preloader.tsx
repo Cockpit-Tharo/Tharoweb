@@ -215,6 +215,9 @@ export default function Preloader({ onStartReveal, onFinish }: PreloaderProps) {
             setTimeout(() => {
               setMorphComplete(true);
               document.body.style.overflow = originalOverflow;
+              if (typeof window !== "undefined") {
+                window.dispatchEvent(new Event("resize"));
+              }
               onFinish?.();
             }, 820);
           }, 180);
