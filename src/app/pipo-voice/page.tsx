@@ -25,7 +25,7 @@ const commandExamples = [
     voiceNote: "Book Dr. Mehta for Mrs. Kapoor tomorrow at 4 PM for root canal sitting.",
     parsedAction: "Appointment Locked",
     detail: "Operatory 2 reserved. Calendar sync sent to Dr. Mehta. WhatsApp confirmation sent to Mrs. Kapoor.",
-    telemetry: "0.42s Execution",
+    telemetry: "Instant Sync",
   },
   {
     sector: "Salon & Spa",
@@ -33,7 +33,7 @@ const commandExamples = [
     voiceNote: "Priya stylist ko Saturday 11 AM hair spa ke liye block karo, ₹500 advance link bhejo.",
     parsedAction: "Slot & Advance Link",
     detail: "Stylist chair blocked. Razorpay UPI deposit link dispatched on WhatsApp to eliminate no-show.",
-    telemetry: "0.38s Execution",
+    telemetry: "Instant Sync",
   },
   {
     sector: "Real Estate",
@@ -41,7 +41,7 @@ const commandExamples = [
     voiceNote: "Log site visit for Vikram Singh at Tower B Villa 402 Saturday 3 PM. Assign Neha.",
     parsedAction: "Lead & Advisor Alert",
     detail: "Tower B ledger updated. Senior advisor Neha S. notified. Branded digital visitor pass sent.",
-    telemetry: "0.45s Execution",
+    telemetry: "Instant Sync",
   },
   {
     sector: "Order Logistics",
@@ -49,7 +49,7 @@ const commandExamples = [
     voiceNote: "Order 4821 ko 3 din ke liye hold pe dalo, customer ko pickup code bhejo.",
     parsedAction: "Inventory Hold Locked",
     detail: "Hub shelf slot reserved. Pickup pin 4821 and location map dispatched via WhatsApp.",
-    telemetry: "0.34s Execution",
+    telemetry: "Instant Sync",
   },
 ];
 

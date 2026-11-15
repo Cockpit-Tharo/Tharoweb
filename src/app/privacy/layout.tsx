@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Privacy Policy | Tharo Technologies",
     description:
-      "Enterprise WhatsApp Business data protection, TLS 1.3 encryption, and PostgreSQL database isolation commitments.",
+      "Enterprise WhatsApp Business data protection, end-to-end encryption, and dedicated database isolation commitments.",
   },
 };
 

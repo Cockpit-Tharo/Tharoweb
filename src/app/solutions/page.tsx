@@ -64,7 +64,7 @@ const BENCHMARKS: BenchmarkSector[] = [
     hoursSaved: "30 hrs/wk",
     payback: "Immediate",
     primaryWorkflow: "Instant WhatsApp RSVP, badge QR generation, and delegate check-in scan",
-    erpSync: "Townscript, Eventbrite & PostgreSQL",
+    erpSync: "Townscript, Eventbrite & Central Ledger",
     badge: "High-Throughput",
   },
   {

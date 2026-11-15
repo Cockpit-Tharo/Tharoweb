@@ -27,36 +27,32 @@ const iconMap = [ShieldCheck, Layers, Zap];
 
 const techStack = [
   {
-    title: "PostgreSQL Relational Core",
+    title: "Central Operational Database",
     icon: Database,
-    badge: "ACID Guaranteed",
-    desc: "When a clinic chair is locked or a warehouse SKU is deducted, data commits atomically across all branch screens with zero conflict.",
+    desc: "When a clinic chair is reserved or a warehouse item is deducted, records update across all team screens instantly with zero conflict.",
   },
   {
     title: "Official Meta Cloud API",
     icon: Server,
-    badge: "Zero Markup",
-    desc: "Direct connection to official WhatsApp Cloud APIs over TLS 1.3 encryption. Zero middleman aggregators, zero message markups, and guaranteed delivery status webhooks.",
+    desc: "Direct connection to official WhatsApp Cloud APIs. Zero middleman aggregators, zero message markups, and reliable delivery.",
   },
   {
     title: "Pipo AI Operations Copilot",
     icon: Cpu,
-    badge: "Domain Tuned",
-    desc: "Neural language engine tuned for Indian commerce. Understands spoken Hinglish and Hindi commands, handles natural executive Q&A, and auto-reads customer WhatsApp chats.",
+    desc: "Built for Indian commerce. Understands natural spoken Hindi and Hinglish commands, updates schedules, and reads customer messages.",
   },
   {
-    title: "Isolated Multi-Tenant Security",
+    title: "Isolated Business Data Security",
     icon: Lock,
-    badge: "Row-Level RLS",
-    desc: "Strict database schema separation with row-level security. Your patient clinical notes, salon customer records, and property pricing are completely isolated.",
+    desc: "Strict database separation. Your patient clinical notes, salon client lists, and pricing remain completely private and isolated.",
   },
 ];
 
 const engineeringCommandments = [
   {
     number: "01",
-    title: "WhatsApp is Front-End, PostgreSQL is Truth",
-    desc: "We never store critical operational state in conversational message logs. Every chat message maps deterministically to a verified database row with ACID integrity.",
+    title: "WhatsApp is the Front-End, Verified Data is the Core",
+    desc: "We never store critical operational state in conversational message logs. Every chat message maps directly to a verified customer record with zero data loss.",
   },
   {
     number: "02",
@@ -94,7 +90,7 @@ const timelineMilestones = [
   {
     phase: "Phase 02 · Core Engine",
     title: "Relational Ledger Architecture",
-    detail: "Building a multi-tenant PostgreSQL core that syncs directly with the Meta Cloud API webhook stream in under 180ms.",
+    detail: "Building a secure multi-tenant core that syncs directly with official WhatsApp messaging in real time.",
   },
   {
     phase: "Phase 03 · Sector Playbooks",
@@ -275,7 +271,6 @@ export default function AboutPage() {
                     <div className={styles.techIconWrap}>
                       <Icon size={20} />
                     </div>
-                    <span className={styles.techBadge}>{tech.badge}</span>
                   </div>
                   <h3 className={styles.techTitle}>{tech.title}</h3>
                   <p className={styles.techDesc}>{tech.desc}</p>

@@ -68,29 +68,6 @@ export default function PlatformPage() {
               <ArrowRight size={14} />
             </Link>
           </motion.div>
-
-          {/* Live Telemetry Bar */}
-          <motion.div
-            className={styles.telemetryBar}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className={styles.telemetryItem}>
-              <span className={styles.telemetryDot} />
-              <span>ACID Write Latency: &lt;180ms</span>
-            </div>
-            <div className={styles.telemetryDivider} />
-            <div className={styles.telemetryItem}>
-              <Database size={13} />
-              <span>PostgreSQL Multi-Tenant RLS</span>
-            </div>
-            <div className={styles.telemetryDivider} />
-            <div className={styles.telemetryItem}>
-              <Server size={13} />
-              <span>Direct Meta Cloud API (TLS 1.3)</span>
-            </div>
-          </motion.div>
         </div>
       </section>
 
@@ -190,11 +167,11 @@ export default function PlatformPage() {
               <div className={styles.pipelineIconBox}>
                 <Database size={22} />
               </div>
-              <h3 className={styles.pipelineTitle}>ACID Transaction Core</h3>
+              <h3 className={styles.pipelineTitle}>Automated Operations Core</h3>
               <p className={styles.pipelineDesc}>
-                Executes atomic database writes: locks calendar slots, decrements inventory SKUs, and generates GST invoice vouchers.
+                Locks calendar slots, updates inventory records, and generates verified invoice vouchers instantly.
               </p>
-              <div className={styles.pipelineFoot}>PostgreSQL &middot; Multi-Tenant Schema</div>
+              <div className={styles.pipelineFoot}>Central Database &middot; Zero Conflict</div>
             </motion.div>
 
             <motion.div
@@ -277,8 +254,8 @@ export default function PlatformPage() {
                 <span className={styles.metricLabel}>Platform Availability SLA</span>
               </div>
               <div className={styles.metricCard}>
-                <span className={styles.metricVal}>&lt;180ms</span>
-                <span className={styles.metricLabel}>Database Commit Latency</span>
+                <span className={styles.metricVal}>Instant</span>
+                <span className={styles.metricLabel}>Real-Time Data Sync</span>
               </div>
               <div className={styles.metricCard}>
                 <span className={styles.metricVal}>0%</span>

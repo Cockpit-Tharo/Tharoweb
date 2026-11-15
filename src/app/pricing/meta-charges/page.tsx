@@ -387,7 +387,7 @@ export default function MetaChargesPage() {
             Ready to deploy on <em className="italic-serif">official Meta Cloud API?</em>
           </h2>
           <p className={styles.ctaSubtitle}>
-            Experience sub-second delivery latency, zero marked-up conversation credits, and full WABA account custody.
+            Experience instant message delivery, zero marked-up conversation credits, and full WhatsApp Business account custody.
           </p>
           <div className={styles.ctaBtns}>
             <Link href="/pricing#calculator" className="btn-primary">

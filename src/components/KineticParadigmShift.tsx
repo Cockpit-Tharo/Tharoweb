@@ -31,7 +31,7 @@ const SHIFT_NODES: ShiftNode[] = [
     title: "Pipo Voice Capture",
     subtitle: "Hands-free clinic voice memos",
     detail: "Turns spoken instructions into structured operational tasks.",
-    badge: "120ms Latency",
+    badge: "Hands-Free",
     icon: Mic,
   },
   {

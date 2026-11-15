@@ -208,7 +208,7 @@ export const sectors: Sector[] = [
         stageNumber: "02",
         stageTitle: "Slot Reservation & Chair Lock",
         trigger: "Patient selects preferred slot or front-desk confirms consultation.",
-        erpAction: "Operatory chair and doctor calendar lock in PostgreSQL database; calendar conflict guard prevents overlaps.",
+        erpAction: "Operatory chair and doctor calendar lock in central database; calendar conflict guard prevents overlaps.",
         customerTouchpoint: "WhatsApp confirmation sent with Google Maps pin, calendar invite, and pre-visit fasting instructions."
       },
       {
@@ -291,7 +291,7 @@ export const sectors: Sector[] = [
       },
       {
         question: "How does the system prevent doctor double-booking across chairs?",
-        answer: "Every doctor and operatory chair is modeled as a distinct resource in the PostgreSQL database. When a slot is confirmed via WhatsApp or reception desk, both the doctor and chair are locked simultaneously."
+        answer: "Every doctor and operatory chair is modeled as a distinct resource in the central database. When a slot is confirmed via WhatsApp or reception desk, both the doctor and chair are locked simultaneously."
       },
       {
         question: "Are WhatsApp messages sent using official Meta APIs?",
@@ -656,7 +656,7 @@ export const sectors: Sector[] = [
         stageNumber: "02",
         stageTitle: "Pass Generation & Token Lock",
         trigger: "Guest taps 'Attending' on WhatsApp.",
-        erpAction: "PostgreSQL assigns seat/table number and generates cryptographically signed QR pass.",
+        erpAction: "System assigns seat/table number and generates cryptographically signed QR pass.",
         customerTouchpoint: "Personalized VIP digital pass delivered to WhatsApp with calendar invite and itinerary."
       },
       {

@@ -67,9 +67,9 @@ const setupDeliverables = [
     day: "Day 02",
     phase: "Database Architecture",
     items: [
-      "Dedicated PostgreSQL schema configuration",
-      "ACID transactional constraints setup",
-      "Field-level customer phone number masking",
+      "Dedicated central database configuration",
+      "Real-time synchronization & conflict guard",
+      "Customer phone number privacy guard",
     ],
   },
   {
@@ -124,7 +124,7 @@ const pricingFaqs = [
   },
   {
     q: "Can we connect our existing ERP, CRM, or billing software?",
-    a: "Yes. We support direct bidirectional webhooks and API connections into Tally, Zoho, Shopify, Petpooja, Salesforce, and custom PostgreSQL/MySQL databases.",
+    a: "Yes. We support direct bidirectional webhooks and API connections into Tally, Zoho, Shopify, Petpooja, Salesforce, and custom business databases.",
   },
 ];
 

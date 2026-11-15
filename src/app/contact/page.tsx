@@ -295,7 +295,7 @@ export default function ContactPage() {
               <span>Direct Engineering Access</span>
             </div>
             <p className={styles.guaranteeDesc}>
-              You consult with real systems architects who configure the PostgreSQL schemas and API webhooks, not outsourced telemarketers.
+              You speak directly with the architects who configure your system and software integrations, not outsourced sales agents.
             </p>
           </motion.div>
 

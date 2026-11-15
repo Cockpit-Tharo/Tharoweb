@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Studio & Engineering Principles | Tharo Technologies",
   description:
-    "Learn why Tharo Technologies builds WhatsApp-first operational systems with PostgreSQL ACID guarantees, zero message markups, and 5-day turnkey delivery.",
+    "Learn why Tharo Technologies builds WhatsApp-first operational systems with enterprise reliability, zero message markups, and 5-day turnkey delivery.",
   openGraph: {
     title: "About Tharo Technologies | Engineering Over Hype",
     description:

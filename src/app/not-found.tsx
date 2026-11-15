@@ -61,7 +61,7 @@ export default function NotFound() {
               <ArrowUpRight size={14} className={styles.cardArrow} />
             </div>
             <span className={styles.cardDesc}>
-              Explore multi-tenant PostgreSQL architecture and real-time ledgers.
+              Explore operational architecture and real-time business ledgers.
             </span>
           </Link>
 
