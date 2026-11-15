@@ -210,11 +210,6 @@ export default function RoiCalculator() {
       <div className="container">
         {/* Header */}
         <div className={styles.header}>
-          <div className={styles.headerPill}>
-            <Calculator size={13} className={styles.headerPillIcon} />
-            <span>Interactive Financial Model</span>
-          </div>
-
           <CinematicLineMaskHeading
             lines={[
               { text: "Calculate your spend" },
@@ -222,8 +217,7 @@ export default function RoiCalculator() {
             ]}
           />
           <CinematicSubhead className={styles.subtitle}>
-            Adjust your inbound customer chat volume and average booking value. See your official
-            WhatsApp message costs, recovered consultations, and estimated net monthly gain.
+            How pricing works: You pay a predictable subscription for our system and AI workflows. Rest, Meta charges you directly per message you send at official wholesale rates (0% markup). Adjust your chat volume below to estimate your monthly economics.
           </CinematicSubhead>
         </div>
 
@@ -368,8 +362,7 @@ export default function RoiCalculator() {
                 <div className={styles.metaSpendHeader}>
                   <div className={styles.metaSpendBadgeRow}>
                     <MessageCircle size={15} className={styles.metaShieldIcon} />
-                    <span className={styles.metaSpendLabel}>Estimated WhatsApp Message Spend</span>
-                    <span className={styles.metaZeroMarkupBadge}>0% Markup</span>
+                    <span className={styles.metaSpendLabel}>Estimated WhatsApp Message Spend (0% Markup)</span>
                   </div>
                   <div className={styles.metaRateBadge}>
                     <span>Rate: {curr.rateDisplay}</span>
@@ -399,11 +392,11 @@ export default function RoiCalculator() {
                   </div>
 
                   <div className={styles.metaSpendExplainer}>
-                    <strong>0% Markup Guarantee:</strong> Meta charges your card directly at official wholesale rates. Tharo takes ₹0 commission on your message volume.
+                    <strong>How pricing works:</strong> You pay for our system. Rest, Meta charges you directly per message you send at wholesale cost. Zero middleman markup.
                   </div>
 
                   <Link href="/pricing/meta-charges" className={styles.metaLearnMoreLink}>
-                    <span>How Meta charges &amp; 0% markup explained</span>
+                    <span>Learn how Meta charges per message &amp; 0% markup</span>
                     <ArrowRight size={12} />
                   </Link>
                 </div>

@@ -53,11 +53,6 @@ export default function MetaChargesPage() {
             <span className={styles.breadcrumbCurrent}>Meta Charges & 0% Markup</span>
           </nav>
 
-          <div className={styles.heroTag}>
-            <ShieldCheck size={14} />
-            <span>Official Meta Cloud API · Direct Pass-Through</span>
-          </div>
-
           <motion.h1
             className={styles.title}
             initial={{ opacity: 0, y: 20 }}
@@ -74,9 +69,7 @@ export default function MetaChargesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            Unlike traditional aggregators that mark up conversation costs or lock you into expiring prepaid wallets,
-            Tharo connects you directly to Meta. You pay us for software orchestration, and Meta bills you directly
-            at pure wholesale cost.
+            How pricing works: You pay a predictable platform fee for our software and automation engine. Rest, Meta charges you directly per message you send at published wholesale rates with 0% markup from us.
           </motion.p>
 
           {/* 4 Pillars Stat Grid */}
@@ -145,7 +138,6 @@ export default function MetaChargesPage() {
       <section className={styles.categoriesSection}>
         <div className="container">
           <div className={styles.sectionHead}>
-            <span className={styles.sectionPill}>Conversation Architecture</span>
             <h2 className={styles.sectionTitle}>
               The 4 Meta WhatsApp <em className="italic-serif">Conversation Categories</em>
             </h2>
@@ -205,7 +197,6 @@ export default function MetaChargesPage() {
       <section className={styles.comparisonSection}>
         <div className="container">
           <div className={styles.sectionHead}>
-            <span className={styles.sectionPill}>Model Comparison</span>
             <h2 className={styles.sectionTitle}>
               Tharo Direct Pass-Through vs. <em className="italic-serif">Traditional Resellers</em>
             </h2>
@@ -255,9 +246,6 @@ export default function MetaChargesPage() {
       <section className={styles.billingSection}>
         <div className="container">
           <div className={styles.sectionHead}>
-            <span className={styles.sectionPill} style={{ background: "rgba(56, 199, 147, 0.15)", color: "#38C793" }}>
-              How You Pay Meta
-            </span>
             <h2 className={styles.sectionTitle} style={{ color: "#FFFFFF" }}>
               The Direct Meta Billing <em className="italic-serif">Workflow</em>
             </h2>
@@ -291,7 +279,6 @@ export default function MetaChargesPage() {
       <section className={styles.ratesSection}>
         <div className="container">
           <div className={styles.sectionHead}>
-            <span className={styles.sectionPill}>Global Transparency</span>
             <h2 className={styles.sectionTitle}>
               Official Meta Cloud API <em className="italic-serif">Tariff Schedule</em>
             </h2>
@@ -345,7 +332,6 @@ export default function MetaChargesPage() {
       <section className={styles.faqSection}>
         <div className="container">
           <div className={styles.sectionHead}>
-            <span className={styles.sectionPill}>Billing Clarity</span>
             <h2 className={styles.sectionTitle}>
               Frequently Asked Questions About <em className="italic-serif">Meta Charges</em>
             </h2>

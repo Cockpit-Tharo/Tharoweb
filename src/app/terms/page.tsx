@@ -11,11 +11,6 @@ export default function TermsPage() {
 
       <div className={styles.container}>
         <header className={styles.header}>
-          <div className={styles.badge}>
-            <span className={styles.badgeDot} />
-            <span>ENTERPRISE SERVICE LEVEL AGREEMENT</span>
-          </div>
-
           <h1 className={styles.title}>
             Terms of Service &amp; <br />
             <em className="italic-serif">Deployment Commitments.</em>

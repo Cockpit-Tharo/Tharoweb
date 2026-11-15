@@ -156,8 +156,7 @@ export default function PricingPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
           >
-            Pay a predictable platform subscription to us, plus official wholesale Meta rates billed directly to your card.
-            Zero proprietary credit tokens, zero hidden conversation markups.
+            How pricing works: You pay a predictable subscription for our system and AI workflows. Rest, Meta charges you directly per message you send at official wholesale rates (0% markup, zero hidden fees).
           </motion.p>
         </div>
       </section>
@@ -219,7 +218,6 @@ export default function PricingPage() {
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className={styles.roadmapTag}>Onboarding Guarantee</span>
             <h2 className={styles.forestTitle} style={{ color: "var(--text-dark, #161616)" }}>
               5-Day Turnkey <em className="italic-serif">Deployment Deliverables</em>
             </h2>
@@ -345,10 +343,6 @@ export default function PricingPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className={styles.metaExplainerPill}>
-              <ShieldCheck size={13} />
-              <span>Direct Wholesale Pass-Through</span>
-            </div>
             <h3 className={styles.metaExplainerHeading}>
               Why our 0% markup model saves you thousands each month.
             </h3>

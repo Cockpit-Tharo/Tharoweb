@@ -11,11 +11,6 @@ export default function PrivacyPage() {
 
       <div className={styles.container}>
         <header className={styles.header}>
-          <div className={styles.badge}>
-            <span className={styles.badgeDot} />
-            <span>DATA GOVERNANCE ARCHITECTURE</span>
-          </div>
-
           <h1 className={styles.title}>
             Privacy Policy &amp; <br />
             <em className="italic-serif">Data Protection Standard.</em>

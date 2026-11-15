@@ -162,6 +162,14 @@ export default function Home() {
       <div id="sec-pricing" style={{ scrollMarginTop: "6rem" }}>
         <BlueprintReveal tag="Transparent Savings Model">
           <RoiCalculator />
+          <div className="container" style={{ textAlign: "center" }}>
+            <p className={styles.pricingNote}>
+              <strong>How pricing works:</strong> You pay for our system and AI workflows. Rest, Meta charges you directly per message you send at wholesale cost with 0% markup.
+              <Link href="/pricing/meta-charges" className={styles.pricingNoteLink}>
+                Learn how Meta charges per message &rarr;
+              </Link>
+            </p>
+          </div>
         </BlueprintReveal>
       </div>
 
@@ -195,7 +203,7 @@ export default function Home() {
                 ]}
               />
               <CinematicSubhead className={styles.ctaBody}>
-                Flat software pricing, 0% Meta markup, and full setup in 5 days.
+                How pricing works: You pay for our system, rest Meta charges you per message you send at 0% markup.
               </CinematicSubhead>
               <div className={styles.ctaBtns}>
                 <Link href="/contact" className="btn-primary">Book a Free Demo</Link>
@@ -222,7 +230,7 @@ export default function Home() {
                 shipping={0}
                 currency="INR"
                 locale="en-IN"
-                footerMessage="Direct wholesale rates, zero extra markup"
+                footerMessage="You pay for our system, rest Meta charges per message"
                 stampText="PAID"
                 buttonLabel="Print sample bill"
               />

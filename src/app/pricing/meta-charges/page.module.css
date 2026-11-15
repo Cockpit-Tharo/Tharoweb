@@ -14,10 +14,9 @@
   font-size: 0.8125rem;
   color: var(--text-dark-muted, #666);
   margin-bottom: 1.5rem;
-  padding: 0.35rem 0.9rem;
-  background: rgba(13, 59, 46, 0.05);
-  border: 1px solid rgba(13, 59, 46, 0.12);
-  border-radius: 999px;
+  padding: 0;
+  background: transparent;
+  border: none;
 }
 
 .breadcrumbLink {
