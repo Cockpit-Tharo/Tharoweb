@@ -183,7 +183,7 @@ export default function Preloader({ onStartReveal, onFinish }: PreloaderProps) {
 
             if (targetEl) {
               const r = targetEl.getBoundingClientRect();
-              const isMob = window.innerWidth <= 768;
+              const isMob = window.innerWidth <= 860;
               const computedRadius =
                 parseFloat(window.getComputedStyle(targetEl).borderRadius) || (isMob ? 18 : 50);
               measuredRect = {
@@ -196,7 +196,7 @@ export default function Preloader({ onStartReveal, onFinish }: PreloaderProps) {
             } else {
               // Precise geometric fallback if ref is still mounting
               const w = window.innerWidth;
-              const isMob = w <= 768;
+              const isMob = w <= 860;
               const targetW = isMob ? Math.min(385, w - 32) : 365;
               measuredRect = {
                 left: (w - targetW) / 2,

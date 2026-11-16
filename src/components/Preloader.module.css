@@ -255,7 +255,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: min(365px, calc(100vw - 2rem));
-  height: clamp(600px, 78vh, 760px);
+  height: clamp(720px, 80vh, 765px);
   border-radius: 50px;
   background: #18181b;
   padding: 9px;
@@ -821,17 +821,17 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 1100px) {
+@media (max-width: 1080px) {
   .morphingCard {
-    width: min(340px, calc(100vw - 2rem));
-    height: clamp(660px, 78vh, 700px);
+    width: 340px;
+    height: 700px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   /* On phones: Clean window situation, zero fake outer phone chassis */
   .morphingCard {
-    width: min(385px, calc(100vw - 1.7rem));
+    width: min(385px, calc(100vw - 2rem));
     height: 500px;
     border-radius: 18px;
     padding: 0;
@@ -985,40 +985,4 @@
   }
 }
 
-/* ─── SHORT & WIDE DESKTOP LAPTOP SCREENS (1366x768, 1440x900, 1536x864 at 125% scaling) ─── */
-@media (min-width: 769px) and (max-height: 840px) {
-  .morphingCard {
-    height: clamp(480px, calc(100vh - 180px), 630px);
-    width: min(330px, calc((100vh - 180px) * 0.52));
-    border-radius: 42px;
-  }
-  .consoleScreen {
-    border-radius: 35px;
-  }
-  .bootLogoImg {
-    width: 58px;
-  }
-  .bootBarContainer {
-    margin-top: 24px;
-  }
-}
 
-@media (min-width: 769px) and (max-height: 700px) {
-  .morphingCard {
-    height: clamp(420px, calc(100vh - 130px), 520px);
-    width: min(290px, calc((100vh - 130px) * 0.52));
-    border-radius: 36px;
-  }
-  .consoleScreen {
-    border-radius: 30px;
-  }
-  .bootLogoImg {
-    width: 48px;
-  }
-  .bootBrandText {
-    font-size: 11px;
-  }
-  .bootBarContainer {
-    margin-top: 18px;
-  }
-}

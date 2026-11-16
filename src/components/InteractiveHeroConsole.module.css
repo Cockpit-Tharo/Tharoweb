@@ -366,7 +366,7 @@
 .phoneFrame {
   position: relative;
   width: min(365px, calc(100vw - 2rem));
-  height: clamp(600px, 78vh, 760px);
+  height: clamp(720px, 80vh, 765px);
   background: #18181b;
   border-radius: 50px;
   padding: 9px;
@@ -1155,7 +1155,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    padding: 0 0.85rem;
+    padding: 0;
   }
 
   .phoneMockupContainer {

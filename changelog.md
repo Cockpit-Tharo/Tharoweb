@@ -1,8 +1,8 @@
 # THARO TECHNOLOGIES | Master Changelog & Engineering Evolution
 > **Project:** Tharo Technologies Web Platform (`tharo-web`)  
 > **Repository:** Git-tracked Next.js 16 (App Router) Application  
-> **Current Version:** `v1.0.0` (Production Ready)  
-> **Last Updated:** November 15, 2026 (Author: Himank Lalani)  
+> **Current Version:** `v1.1.0` (Production Ready)  
+> **Last Updated:** November 16, 2026 (Author: Himank Lalani)  
 > **Purpose:** Comprehensive, granular record of all design decisions, architectural evolutions, code changes, competitive audits, and feature implementations for team members and AI pair-programming agents.
 
 ---
@@ -10,12 +10,55 @@
 ## Release Timeline Summary
 
 ```
+v1.1.0 (Short Laptop Responsive Scaling, Zero Hover Lift & Custom Domain Mapping)
+  └── Isolated short-laptop viewport scaling, phone mockup internal text proportional sizing with full chassis length, 4-card gallery Y-dampened scatter, Rule 9 zero z-axis hover lift, Hostinger DNS tharo.tech mapping
 v1.0.0 (Production Release & Polish)
   └── Single-viewport ROI Calculator, Phone Restart Preloader, Privacy/Terms/404, sitemap.xml, zero jargon
 v0.20.0 (Studio Rebrand to Tharo Technologies LLP)
   └── Complete migration to Tharo.tech, 14 sector playbooks, Warm Swiss luxury design system
 v0.1.0 - v0.19.6 (Architecture & Component Evolution)
   └── Interactive WhatsApp Simulator, StackflowCards, DepthCarousel, Integration Matrix, Pipo Voice
+```
+
+---
+
+## [v1.1.0] - 2026-11-16
+### Short Laptop Responsive Scaling, Zero Hover Lift & Custom Domain Mapping
+
+#### 1. Responsive Short-Laptop Viewport Architecture
+- **Strict Viewport Isolation:**
+  - Scoped all compact scaling strictly under `@media (min-width: 960px) and (max-height: 820px)` and `@media (min-width: 960px) and (max-height: 700px)`.
+  - Guaranteed that mobile devices (`max-width: 768px`), tablets (`768px - 959px`), and standard/tall desktop viewports (`height >= 850px`, including MacBooks) remain 100% untouched.
+
+#### 2. Hero WhatsApp Simulator: Seamless Preloader Docking & Preserved Outer Frame
+- **Preserved Outer Frame Dimensions:** Retained the authentic full length (`height: clamp(720px, 80vh, 765px)`), width (`min(365px, calc(100vw - 2rem))`), 50px rounded corners, and 9px chassis padding in [`InteractiveHeroConsole.module.css`](file:///Users/himanklalani/Projects/uncomplic8/src/components/InteractiveHeroConsole.module.css). Outer phone length is never artificially reduced.
+- **100% Preloader Synchronization:** Synchronized dimensions, border-radius, and padding between [`Preloader.module.css`](file:///Users/himanklalani/Projects/uncomplic8/src/components/Preloader.module.css) and [`InteractiveHeroConsole.module.css`](file:///Users/himanklalani/Projects/uncomplic8/src/components/InteractiveHeroConsole.module.css), completely eliminating the resizing jump during the preloader to hero phone transition on 13.6-inch MacBook and all viewports.
+- **Proportional Internal Demo Sizing:**
+  - Scaled message bubbles (`font-size: 0.72rem`, `line-height: 1.34`, `padding: 0.35rem 0.52rem`).
+  - Scaled action buttons (`font-size: 0.68rem`, `padding: 0.36rem 0.55rem`), reducing button block height by over 50%.
+  - Scaled avatar (32px), header contact typography, dynamic island (72px × 18px), and bottom input bar (30px mic button).
+  - Ensured all messages, slot buttons ("10:30 AM", "3:30 PM", "6:00 PM"), confirmation card ("Add to Calendar", "Clinic Directions"), and the bottom input bar fit inside the phone screen simultaneously without clipping.
+
+#### 3. 4-Card Asymmetric Gallery: Dampened Vertical Fan-Out
+- **Separated Multipliers in Code:** In [`CinematicAsymmetricGallery.tsx`](file:///Users/himanklalani/Projects/uncomplic8/src/components/CinematicAsymmetricGallery.tsx), separated horizontal (`xMultiplier`) and vertical (`yMultiplier`) scatter logic. On viewports with `height <= 820px`, `yMultiplier` dampens vertically to prevent cards from overflowing top or bottom screen boundaries.
+- **Compacted Card Dimensions:** In [`CinematicAsymmetricGallery.module.css`](file:///Users/himanklalani/Projects/uncomplic8/src/components/CinematicAsymmetricGallery.module.css), compacted card width (275px) and padding under the short-laptop media query.
+
+#### 4. Rule 9: Zero Z-Axis Hover Lift or Popups on Cards & Images
+- **Grounding Static Containers:** Enforced mandatory design rule across the codebase: static containers, cards, images, and artwork must stay grounded. Hover effects are restricted to background contrast, border illumination, or interactive controls.
+- **Removed Lift Transforms:** Removed `calc(var(--ty) - 6px)` and `scale(1.04)` on hover in [`CinematicAsymmetricGallery.module.css`](file:///Users/himanklalani/Projects/uncomplic8/src/components/CinematicAsymmetricGallery.module.css) and `transform: translateY(-2px)` on focus in [`SystemAnatomyStage.module.css`](file:///Users/himanklalani/Projects/uncomplic8/src/components/SystemAnatomyStage.module.css).
+
+#### 5. Section Viewport Compactness
+- **System Anatomy:** Compacted stage shell padding (`0.95rem 1.25rem`), step items (`0.6rem 0.85rem`), and schematic panels in [`SystemAnatomyStage.module.css`](file:///Users/himanklalani/Projects/uncomplic8/src/components/SystemAnatomyStage.module.css) so steps 01 through 04 fit on screen without vertical clipping.
+- **ROI Calculator:** Compacted section padding (`3rem 0 3.5rem`), header spacing, control box padding, and results column in [`RoiCalculator.module.css`](file:///Users/himanklalani/Projects/uncomplic8/src/components/RoiCalculator.module.css).
+- **Lollipop Carousel:** Scaled capsule height to `clamp(330px, 46vh, 380px)` in [`LollipopCarousel.module.css`](file:///Users/himanklalani/Projects/uncomplic8/src/components/LollipopCarousel.module.css).
+- **Sector Showcase:** Compacted stage card padding in [`SectorPillShowcase.module.css`](file:///Users/himanklalani/Projects/uncomplic8/src/components/SectorPillShowcase.module.css).
+- **Architecture Canvas:** Restored full natural 16:9 vertical height (`max-height: 560px`) in [`CinematicPictureComplete.module.css`](file:///Users/himanklalani/Projects/uncomplic8/src/components/CinematicPictureComplete.module.css).
+
+#### 6. Custom Domain Mapping & Production Deployment
+- **Custom Domain Configured:** Connected Hostinger DNS to Vercel for `tharo.tech`. Configured A Record pointing to `216.198.79.1` and CNAME for `www` pointing to `cname.vercel-dns.com`.
+- **Wholesale Meta Billing Route:** Added dedicated transparent pricing guide at `/pricing/meta-charges` explaining direct Meta wholesale message billing with 0% markup.
+
+---
 v0.1.0 (Architecture & Blueprint)
   └── Brand Foundation, Competitive Research (Wati/DoubleTick), uncomplic8.md master plan
 v0.2.0 (Core Engine & Interactivity)
@@ -195,7 +238,7 @@ v0.20.0 (Master System Context & Developer Handover Engine)
 - **Strict Humanizer-zh Principle Enforcement**:
   - Removed AI filler verbs, puffery, and exaggerated claims ("stands as a testament", "empowering", "revolutionizing", "beacon").
   - Eliminated rule-of-three cliches and formulaic contrasting patterns.
-  - Strictly enforced **zero em dashes** (`—`), zero en dashes (`–`), and **zero emojis** across UI copy, data definitions, and documentation.
+  - Strictly enforced **zero em dashes**, zero en dashes, and **zero emojis** across UI copy, data definitions, and documentation.
 - **Files Humanized**:
   - `src/data/siteConfig.ts`: Plain-language brand tagline, description, and footer.
   - `src/data/steps.ts`: 5 clear stages (Review Workflow, WhatsApp Setup, Connect Tally, Build Smart Flows, Train Team & Go Live).
