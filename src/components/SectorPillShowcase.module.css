@@ -292,6 +292,40 @@
   }
 }
 
+/* ─── SHORT & WIDE DESKTOP LAPTOP SCREENS (1366x768, 1440x900, 1536x864 at 125% scaling) ─── */
+@media (min-width: 960px) and (max-height: 820px) {
+  .stageCard {
+    padding: 1.35rem 1.65rem 1.25rem;
+    border-radius: 18px;
+  }
+  .stageGrid {
+    gap: 1.75rem;
+  }
+  .sectorTitle {
+    font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+    margin-bottom: 0.5rem;
+  }
+  .sectorSubtitle {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    margin-bottom: 1rem;
+  }
+  .specGrid {
+    gap: 0.5rem;
+    margin-bottom: 1.15rem;
+  }
+  .specItem {
+    padding: 0.55rem 0.75rem;
+  }
+  .specValue {
+    font-size: 0.95rem;
+  }
+  .flowPreviewBox {
+    padding: 1rem 1.15rem;
+    border-radius: 14px;
+  }
+}
+
 /* Reduced Motion Safety */
 @media (prefers-reduced-motion: reduce) {
   .pillActiveBg,

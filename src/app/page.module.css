@@ -567,3 +567,19 @@
 .pricingNoteLink:hover {
   color: var(--primary-dark, #0D3B2E);
 }
+
+/* ─── SHORT & WIDE DESKTOP LAPTOP SCREENS (1366x768, 1440x900, 1536x864 at 125% scaling) ─── */
+@media (min-width: 960px) and (max-height: 820px) {
+  .sectionHead {
+    margin-bottom: 2.25rem;
+  }
+  .capsulesSection {
+    padding: 3.25rem 0 3.5rem;
+  }
+  .sectorsSection {
+    padding: 3.5rem 0 3.5rem;
+  }
+  .ctaBanner {
+    padding: 3.5rem 0 4rem;
+  }
+}

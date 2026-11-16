@@ -297,12 +297,22 @@ export default function CinematicAsymmetricGallery({
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const getMultiplier = () => {
+    const getMultipliers = () => {
       const w = window.innerWidth;
-      if (w >= 1440) return 1.0;
-      if (w >= 1200) return 0.92;
-      if (w >= 1024) return 0.82;
-      return 0.72;
+      const h = window.innerHeight;
+      let xM = 1.0;
+      if (w >= 1440) xM = 1.0;
+      else if (w >= 1200) xM = 0.92;
+      else if (w >= 1024) xM = 0.82;
+      else xM = 0.72;
+
+      let yM = xM;
+      if (w >= 901 && h <= 820) {
+        // Shorter laptop screens: dampen vertical scatter so cards do not collide or overflow top/bottom
+        const heightFactor = Math.max(0.55, Math.min(1.0, (h - 220) / 600));
+        yM = Math.min(xM, heightFactor);
+      }
+      return { xMultiplier: xM, yMultiplier: yM };
     };
 
     const wordEls = wordsWrapRef.current
@@ -310,7 +320,7 @@ export default function CinematicAsymmetricGallery({
       : [];
     const totalWords = wordEls.length;
 
-    let multiplier = getMultiplier();
+    let { xMultiplier, yMultiplier } = getMultipliers();
 
     const applyDesktopProgress = (progress: number) => {
       // Reveal the central editorial statement only as cards scatter outward
@@ -352,8 +362,8 @@ export default function CinematicAsymmetricGallery({
         const cardPhase = Math.max(0, Math.min(1, (progress - cardStart) / (cardEnd - cardStart)));
         const easePhase = 1 - Math.pow(1 - cardPhase, 2.4);
 
-        const curX = config.start.x + (config.target.x * multiplier - config.start.x) * easePhase;
-        const curY = config.start.y + (config.target.y * multiplier - config.start.y) * easePhase;
+        const curX = config.start.x + (config.target.x * xMultiplier - config.start.x) * easePhase;
+        const curY = config.start.y + (config.target.y * yMultiplier - config.start.y) * easePhase;
         const curRot = config.start.rotate + (config.target.rotate - config.start.rotate) * easePhase;
         const curScale = config.start.scale + (config.target.scale - config.start.scale) * easePhase;
 
@@ -375,7 +385,9 @@ export default function CinematicAsymmetricGallery({
     }
 
     const handleResize = () => {
-      multiplier = getMultiplier();
+      const mults = getMultipliers();
+      xMultiplier = mults.xMultiplier;
+      yMultiplier = mults.yMultiplier;
       ScrollTrigger.refresh();
     };
     window.addEventListener("resize", handleResize);

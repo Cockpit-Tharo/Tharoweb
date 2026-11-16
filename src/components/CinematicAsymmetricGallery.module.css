@@ -149,9 +149,8 @@
   z-index: 35 !important;
   border-color: rgba(13, 59, 46, 0.35);
   box-shadow:
-    0 28px 65px rgba(6, 36, 25, 0.16),
-    0 4px 14px rgba(6, 36, 25, 0.06);
-  transform: translate3d(var(--tx, 0px), calc(var(--ty, 0px) - 6px), 0) rotate(0deg) scale(calc(var(--scale, 1) * 1.04));
+    0 24px 60px rgba(6, 36, 25, 0.14),
+    0 4px 12px rgba(6, 36, 25, 0.05);
 }
 
 .frameWindow {
@@ -793,6 +792,36 @@
 @media (min-width: 901px) {
   .mobileOnlyTrack {
     display: none !important;
+  }
+}
+
+/* ─── SHORT & WIDE DESKTOP LAPTOP SCREENS (1366x768, 1440x900, 1536x864 at 125% scaling) ─── */
+@media (min-width: 901px) and (max-height: 820px) {
+  .headline {
+    font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+  }
+  .subtext {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    max-width: 440px;
+  }
+  .scatterCard {
+    width: 275px;
+    padding: 0.6rem 0.65rem 0.75rem;
+    border-radius: 15px;
+  }
+  .frameWindow {
+    border-radius: 11px;
+    margin-bottom: 0.5rem;
+  }
+  .frictionText {
+    font-size: 0.72rem;
+  }
+  .solutionTag {
+    font-size: 0.62rem;
+    padding: 0.15rem 0.45rem;
   }
 }
 
